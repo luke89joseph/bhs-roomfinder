@@ -26,14 +26,16 @@ body {
 #logo {
     display: block;
     margin: 0 auto;
-    width: 120px;
+    width: 80px;
     -webkit-user-drag: none;
     user-select: none;
     -webkit-user-select: none;
+    padding: 0;
 }
 #header {
     background-color: rgb(194, 215, 234);
     padding: 20px;
+    color: rgb(66, 66, 143);
     position: fixed;
     height: 100px;
     top: 0;
@@ -58,5 +60,8 @@ body {
     border-radius: 360px;
     vertical-align: middle;
     font-size: 30px !important;
-    color: rgb(244, 244, 247)
+    color: rgb(244, 244, 247);
+    user-select: none;
+    -webkit-user-select: none;
+    cursor: pointer;
 }

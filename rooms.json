@@ -1,7 +1,152 @@
 [
     {
-        "name": "name",
-        "floor": 1,
-        "coords": "coords"
+      "name": "H234",
+      "floor": 2,
+      "coordX": 290,
+      "coordY": 90
+    },
+    {
+      "name": "H233",
+      "floor": 2,
+      "coordX": 405,
+      "coordY": 90
+    },
+    {
+      "name": "H232",
+      "floor": 2,
+      "coordX": 520,
+      "coordY": 90
+    },
+    {
+      "name": "H231",
+      "floor": 2,
+      "coordX": 640,
+      "coordY": 90
+    },
+    {
+      "name": "H240",
+      "floor": 2,
+      "coordX": 290,
+      "coordY": 210
+    },
+    {
+      "name": "H230",
+      "floor": 2,
+      "coordX": 640,
+      "coordY": 210
+    },
+    {
+      "name": "H225",
+      "floor": 2,
+      "coordX": 470,
+      "coordY": 300
+    },
+    {
+      "name": "H228 MathLab",
+      "floor": 2,
+      "coordX": 520,
+      "coordY": 360
+    },
+    {
+      "name": "H223 Achi",
+      "floor": 2,
+      "coordX": 350,
+      "coordY": 440
+    },
+    {
+      "name": "H222",
+      "floor": 2,
+      "coordX": 380,
+      "coordY": 540
+    },
+    {
+      "name": "H226",
+      "floor": 2,
+      "coordX": 520,
+      "coordY": 540
+    },
+    {
+      "name": "H218",
+      "floor": 2,
+      "coordX": 290,
+      "coordY": 690
+    },
+    {
+      "name": "H217",
+      "floor": 2,
+      "coordX": 405,
+      "coordY": 690
+    },
+    {
+      "name": "H203",
+      "floor": 2,
+      "coordX": 520,
+      "coordY": 690
+    },
+    {
+      "name": "H216",
+      "floor": 2,
+      "coordX": 290,
+      "coordY": 770
+    },
+    {
+      "name": "H215",
+      "floor": 2,
+      "coordX": 405,
+      "coordY": 770
+    },
+    {
+      "name": "H201",
+      "floor": 2,
+      "coordX": 520,
+      "coordY": 770
+    },
+    {
+      "name": "H200",
+      "floor": 2,
+      "coordX": 640,
+      "coordY": 770
+    },
+    {
+      "name": "H212",
+      "floor": 2,
+      "coordX": 290,
+      "coordY": 890
+    },
+    {
+      "name": "H214",
+      "floor": 2,
+      "coordX": 290,
+      "coordY": 920
+    },
+    {
+      "name": "H210",
+      "floor": 2,
+      "coordX": 405,
+      "coordY": 890
+    },
+    {
+      "name": "H208",
+      "floor": 2,
+      "coordX": 520,
+      "coordY": 890
+    },
+    {
+      "name": "H206",
+      "floor": 2,
+      "coordX": 640,
+      "coordY": 880
+    },
+    {
+      "name": "H207",
+      "floor": 2,
+      "coordX": 640,
+      "coordY": 910
+    },
+    {
+      "name": "H204",
+      "floor": 2,
+      "coordX": 690,
+      "coordY": 910
     }
-]
+  ] 

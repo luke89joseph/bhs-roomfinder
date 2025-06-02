@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Room Finder</title>
+        <link href = "styles.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,600,0..1,-50..200&icon_names=search" />
+        <style>
+            #query {
+                background-color: rgb(220, 131, 15);
+                padding: 15px;
+                border-radius: 10px;
+                box-shadow: 0 10px 6px -1px rgba(0, 0, 0, 0.1);
+                text-align: center;
+                vertical-align: middle;
+            }
+        </style>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div id="header"></div>
+        <div id="space"></div>
+        <br><br><br>
+        <h1>Searching:</h1>
+        <h1><span id="query"></span></h1>
+
+    </body>
+    <script src="main.js"></script>
+    <script>
+        document.getElementById("query").textContent = sessionStorage.getItem("searchQuery")
+    </script>
+</html>

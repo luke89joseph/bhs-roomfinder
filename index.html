@@ -30,7 +30,7 @@
         <h1 id="periodTag">Welcome</h1>
 
         <h4>
-        <span class="material-symbols-outlined iconLarge">search</span>
+        <span id="searchTrigger" class="material-symbols-outlined iconLarge">search</span>
         <input class="searchbar" id="searchBranch" placeholder="Search Roomfinder...">
         </input></h4>
     </body>
@@ -108,5 +108,21 @@
         if (period.length > 0) {
             document.getElementById("periodTag").innerText = period;
         }
+    </script>
+    <script>
+        let trigger = document.getElementById("searchTrigger");
+        trigger.onclick = function() {
+            sessionStorage.setItem("searchQuery", document.getElementById("searchBranch").value);
+            //console.log(document.getElementById("searchBranch").value);
+            window.location.href = "query.html";
+        };
+
+        document.getElementById("searchBranch").addEventListener("keydown", function(event) {
+            if (event.key === "Enter") {
+            event.preventDefault();
+            sessionStorage.setItem("searchQuery", document.getElementById("searchBranch").value);
+            window.location.href = "query.html";
+            }
+        });
     </script>
 </html>
