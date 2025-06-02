@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Room Finder</title>
+        <link href = "styles.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,600,0..1,-50..200&icon_names=search" />
+        <style>
+            #imgHome {
+                width: 100%;
+                margin: 0;
+                border-bottom-right-radius: 35px;
+                border-bottom-left-radius: 35px;
+                box-shadow: 0 20px 10px -1px rgba(0, 0, 0, 0.1);
+                -webkit-user-drag: none;
+                -webkit-user-select: none;
+                user-select: none;
+            }
+            #periodTag {
+                user-select: none;
+                -webkit-user-select: none;
+            }
+        </style>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div id="header"></div>
+        <div id="space"></div>
+        <img src="images/homeImg.png" id="imgHome">
+        <br><br><br>
+        <h1 id="periodTag">Welcome</h1>
+
+        <h4>
+        <span class="material-symbols-outlined iconLarge">search</span>
+        <input class="searchbar" id="searchBranch" placeholder="Search Roomfinder...">
+        </input></h4>
+    </body>
+    <script src="main.js"></script>
+    <script>
+        let now = new Date(); 
+        let hour = now.getHours();
+        let min = now.getMinutes();
+        let day = now.getDay() + 1;
+
+        let period = "";
+        if (hour == 8) {
+            if (min >= 30) {
+                period = "Period 1";
+            }
+        }
+        else if (hour == 9) {
+            if (min >= 17) {
+                period = "Period 2";
+            }
+            else {
+                period = "Period 1";
+            }
+        }
+        else if (hour == 10) {
+            if (min >= 3) {
+                period = "Period 3";
+            }
+            else {
+                period = "Period 2";
+            }
+            if (min >= 48) {
+                period = "Period 4";
+            }
+        }
+        else if (hour == 11) {
+            if (min >= 33) {
+                period = "Period 5 A/B";
+            }
+            else {
+                period = "Period 4";
+            }
+        }
+        else if (hour == 12) {
+            if (min >= 45) {
+                period = "Period 6";
+            }
+            else {
+                period = "Period 5 A/B";
+            }
+        }
+        else if (hour == 13) {
+            if (min >= 30) {
+                period = "Period 7";
+            }
+            else {
+                period = "Period 6";
+            }
+        }
+        else if (hour == 14) {
+            if (min >= 15) {
+                period = "Period 8";
+            }
+            else {
+                period = "Period 7";
+            }
+        }
+        else if (hour == 15) {
+            period = "Clubs/Afterschool Activities";
+        }
+        
+        if (day == 1 || day == 7) {
+            period = "";
+        }
+        if (period.length > 0) {
+            document.getElementById("periodTag").innerText = period;
+        }
+    </script>
+</html>

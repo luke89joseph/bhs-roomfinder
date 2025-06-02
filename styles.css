@@ -1,0 +1,62 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100..800");
+
+h1 {
+    font-family: Rockwell, Montserrat;
+    text-align: center;
+    color: white
+}
+h1.sub {
+    font-weight: 100;
+}
+h3 {
+    font-family: Montserrat;
+    color: rgb(224, 244, 251)
+}
+#coords {
+    color: white;
+    font-family: Montserrat;
+    text-align: center;
+    padding: 20px;
+}
+body {
+    background-color: rgb(191, 101, 37);
+    margin: 0;
+    text-align: center;
+}
+#logo {
+    display: block;
+    margin: 0 auto;
+    width: 120px;
+    -webkit-user-drag: none;
+    user-select: none;
+    -webkit-user-select: none;
+}
+#header {
+    background-color: rgb(194, 215, 234);
+    padding: 20px;
+    position: fixed;
+    height: 100px;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+#space {
+    height: 115px;
+}
+
+.searchbar {
+    background-color: white;
+    padding: 15px;
+    border-radius: 20px;
+    font-weight: 700;
+    font-family: system-ui, -apple-system, Montserrat, sans-serif;
+    box-shadow: 0 10px 6px -1px rgba(0, 0, 0, 0.1);
+}
+.iconLarge {
+    background-color: rgb(49, 43, 39);
+    padding: 6px;
+    border-radius: 360px;
+    vertical-align: middle;
+    font-size: 30px !important;
+    color: rgb(244, 244, 247)
+}
