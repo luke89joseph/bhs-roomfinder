@@ -22,10 +22,35 @@
         <br><br><br>
         <h1>Searching:</h1>
         <h1><span id="query"></span></h1>
+        <h3>--------</h3>
+        <br>
+        <div id="results"><h3>No results matched your search query</h3></div>
 
     </body>
     <script src="main.js"></script>
     <script>
-        document.getElementById("query").textContent = sessionStorage.getItem("searchQuery")
+        let queryVal = sessionStorage.getItem("searchQuery");
+        document.getElementById("query").textContent = queryVal;
+
+        fetch('rooms.json')
+        .then(response => response.json())
+        .then(function(data) {
+            for (let i = 0; i < data.length; i++) {
+                if (queryVal.toUpperCase() === data[i].name.toUpperCase()) {
+                    document.getElementById("results").innerHTML = `<h3>${data[i].name}</h3>`;
+                    break;
+                }
+            }
+            let content = "";
+            for (let i = 0; i < data.length; i++) {
+                if (data[i].name.toUpperCase().includes(queryVal.toUpperCase())) {
+                    content += `<h3>${data[i].name}</h3>`;
+                }
+            }
+            if (content.length > 0) {
+                document.getElementById("results").innerHTML = content;
+            }
+        })
+        // queryVal.toUpperCase()
     </script>
 </html>

@@ -1,39 +1,117 @@
 [
     {
-      "name": "H234",
+      "name": "Acheivement Center",
       "floor": 2,
-      "coordX": 290,
-      "coordY": 90
+      "coordX": 468,
+      "coordY": 370
     },
     {
-      "name": "H233",
+      "name": "Elevator",
       "floor": 2,
-      "coordX": 405,
-      "coordY": 90
+      "coordX": 443,
+      "coordY": 284
     },
     {
-      "name": "H232",
+      "name": "Math Lab",
       "floor": 2,
-      "coordX": 520,
-      "coordY": 90
+      "coordX": 554,
+      "coordY": 330
     },
     {
-      "name": "H231",
+      "name": "Wellness Center",
       "floor": 2,
-      "coordX": 640,
-      "coordY": 90
+      "coordX": 458,
+      "coordY": 258
     },
     {
-      "name": "H240",
+      "name": "H200",
       "floor": 2,
-      "coordX": 290,
-      "coordY": 210
+      "coordX": 557,
+      "coordY": 510
     },
     {
-      "name": "H230",
+      "name": "H201",
       "floor": 2,
-      "coordX": 640,
-      "coordY": 210
+      "coordX": 557,
+      "coordY": 510
+    },
+    {
+      "name": "H203",
+      "floor": 2,
+      "coordX": 559,
+      "coordY": 470
+    },
+    {
+      "name": "H204",
+      "floor": 2,
+      "coordX": 561,
+      "coordY": 543
+    },
+    {
+      "name": "H207",
+      "floor": 2,
+      "coordX": 561,
+      "coordY": 543
+    },
+    {
+      "name": "H208",
+      "floor": 2,
+      "coordX": 539,
+      "coordY": 547
+    },
+    {
+      "name": "H210",
+      "floor": 2,
+      "coordX": 498,
+      "coordY": 547
+    },
+    {
+      "name": "H212",
+      "floor": 2,
+      "coordX": 464,
+      "coordY": 540
+    },
+    {
+      "name": "H215",
+      "floor": 2,
+      "coordX": 473,
+      "coordY": 521
+    },
+    {
+      "name": "H216",
+      "floor": 2,
+      "coordX": 473,
+      "coordY": 521
+    },
+    {
+      "name": "H217",
+      "floor": 2,
+      "coordX": 474,
+      "coordY": 473
+    },
+    {
+      "name": "H218",
+      "floor": 2,
+      "coordX": 474,
+      "coordY": 473
+    },
+    {
+      "name": "H220",
+      "floor": 2,
+      "coordX": 493,
+      "coordY": 334
+    },
+    {
+      "name": "H222",
+      "floor": 2,
+      "coordX": 469,
+      "coordY": 418
+    },
+    {
+      "name": "H223",
+      "floor": 2,
+      "coordX": 468,
+      "coordY": 370
     },
     {
       "name": "H225",
@@ -42,111 +120,57 @@
       "coordY": 300
     },
     {
-      "name": "H228 MathLab",
-      "floor": 2,
-      "coordX": 520,
-      "coordY": 360
-    },
-    {
-      "name": "H223 Achi",
-      "floor": 2,
-      "coordX": 350,
-      "coordY": 440
-    },
-    {
-      "name": "H222",
-      "floor": 2,
-      "coordX": 380,
-      "coordY": 540
-    },
-    {
       "name": "H226",
       "floor": 2,
-      "coordX": 520,
-      "coordY": 540
+      "coordX": 556,
+      "coordY": 413
     },
     {
-      "name": "H218",
+      "name": "H228",
       "floor": 2,
-      "coordX": 290,
-      "coordY": 690
+      "coordX": 554,
+      "coordY": 330
     },
     {
-      "name": "H217",
+      "name": "H230",
       "floor": 2,
-      "coordX": 405,
-      "coordY": 690
+      "coordX": 548,
+      "coordY": 236
     },
     {
-      "name": "H203",
+      "name": "H231",
       "floor": 2,
-      "coordX": 520,
-      "coordY": 690
+      "coordX": 548,
+      "coordY": 236
     },
     {
-      "name": "H216",
+      "name": "H232",
       "floor": 2,
-      "coordX": 290,
-      "coordY": 770
+      "coordX": 507,
+      "coordY": 225
     },
     {
-      "name": "H215",
+      "name": "H233",
       "floor": 2,
-      "coordX": 405,
-      "coordY": 770
+      "coordX": 507,
+      "coordY": 225
     },
     {
-      "name": "H201",
+      "name": "H234",
       "floor": 2,
-      "coordX": 520,
-      "coordY": 770
+      "coordX": 507,
+      "coordY": 225
     },
     {
-      "name": "H200",
+      "name": "H239",
       "floor": 2,
-      "coordX": 640,
-      "coordY": 770
+      "coordX": 458,
+      "coordY": 258
     },
     {
-      "name": "H212",
+      "name": "H240",
       "floor": 2,
-      "coordX": 290,
-      "coordY": 890
-    },
-    {
-      "name": "H214",
-      "floor": 2,
-      "coordX": 290,
-      "coordY": 920
-    },
-    {
-      "name": "H210",
-      "floor": 2,
-      "coordX": 405,
-      "coordY": 890
-    },
-    {
-      "name": "H208",
-      "floor": 2,
-      "coordX": 520,
-      "coordY": 890
-    },
-    {
-      "name": "H206",
-      "floor": 2,
-      "coordX": 640,
-      "coordY": 880
-    },
-    {
-      "name": "H207",
-      "floor": 2,
-      "coordX": 640,
-      "coordY": 910
-    },
-    {
-      "name": "H204",
-      "floor": 2,
-      "coordX": 690,
-      "coordY": 910
+      "coordX": 462,
+      "coordY": 263
     }
-  ] 
+  ]
