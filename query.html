@@ -13,6 +13,17 @@
                 text-align: center;
                 vertical-align: middle;
             }
+            .room {
+                background-color: rgb(127, 49, 4);
+                margin-left: 10vw;
+                margin-right: 10vw;
+                margin-bottom: 20px;
+                padding: 5px;
+                border-radius: 30px;
+            }
+            a {
+                color: white;
+            }
         </style>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
@@ -24,7 +35,7 @@
         <h1><span id="query"></span></h1>
         <h3>--------</h3>
         <br>
-        <div id="results"><h3>No results matched your search query</h3></div>
+        <div id="results"><h3>Loading...</h3></div>
 
     </body>
     <script src="main.js"></script>
@@ -37,18 +48,27 @@
         .then(function(data) {
             for (let i = 0; i < data.length; i++) {
                 if (queryVal.toUpperCase() === data[i].name.toUpperCase()) {
-                    document.getElementById("results").innerHTML = `<h3>${data[i].name}</h3>`;
+                    document.getElementById("results").innerHTML = `<div class="room">
+                        <h3>${data[i].name}</h3>
+                        <h5><span>Floor ${data[i].floor}</span></h5>
+                        </div>`;
                     break;
                 }
             }
             let content = "";
             for (let i = 0; i < data.length; i++) {
                 if (data[i].name.toUpperCase().includes(queryVal.toUpperCase())) {
-                    content += `<h3>${data[i].name}</h3>`;
+                    content += `<div class="room">
+                        <h3>${data[i].name}</h3>
+                        <h5><span>Floor ${data[i].floor}</span></h5>
+                        </div>`;
                 }
             }
             if (content.length > 0) {
                 document.getElementById("results").innerHTML = content;
+            }
+            else {
+                document.getElementById("results").innerHTML = "<h3>No results matched your search query</h3><h3><a href=index.html>Return Home</a></h3>";
             }
         })
         // queryVal.toUpperCase()

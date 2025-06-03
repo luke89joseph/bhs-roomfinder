@@ -12,6 +12,15 @@ h3 {
     font-family: Montserrat;
     color: rgb(224, 244, 251)
 }
+h5 {
+    font-family: Rockwell, Montserrat;
+    color: white;
+    span {
+        background-color: rgb(176, 77, 11);
+        padding: 10px;
+        border-radius: 360px;
+    }
+}
 #coords {
     color: white;
     font-family: Montserrat;
