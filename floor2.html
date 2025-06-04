@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Room Finder</title>
+        <link href = "styles.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+        <style>
+            #imgHome {
+                width: 100%;
+                margin: 0;
+                border-bottom-right-radius: 35px;
+                border-bottom-left-radius: 35px;
+                box-shadow: 0 20px 10px -1px rgba(0, 0, 0, 0.1);
+                -webkit-user-drag: none;
+                -webkit-user-select: none;
+                user-select: none;
+            }
+            #periodTag {
+                user-select: none;
+                -webkit-user-select: none;
+            }
+            #map {
+                width: 100%;
+                height: 100vh; /* Give it a visible height */
+                z-index: 0;
+            }
+            body {
+                background-color: rgb(225, 220, 210);
+            }
+        </style>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div id="map"></div>
+    </body>
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+<script>
+    const imageWidth = 314;
+        const imageHeight = 702;
+        const cellSize = 20;
+
+        const bounds = [[0, 0], [imageHeight, imageWidth]];
+
+        const map = L.map('map', {
+            crs: L.CRS.Simple,
+            minZoom: 0,
+            maxZoom: 10,
+            maxBounds: bounds,
+            maxBoundsViscosity: 1.0,
+        });
+
+        // Load the image overlay
+        const image = L.imageOverlay('images/map2.png', bounds).addTo(map);
+
+        // Fit the map view to the image
+        map.fitBounds(bounds);
+
+        // Load room markers from JSON
+        fetch('rooms.json')
+            .then(response => response.json())
+            .then(function(data) {
+                for (let i = 0; i < data.length; i++) {
+                    //Leaflet uses [Y, X] order
+                    if (data[i].floor == 2) {
+                        L.marker([702-data[i].coordY, data[i].coordX-300])
+                        .addTo(map)
+                        .bindPopup(data[i].name);
+                    }
+                }
+            });
+
+    </script>
+</html>

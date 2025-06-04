@@ -2,8 +2,7 @@
 <html>
     <head>
         <title>Room Finder</title>
-        <link href = "styles.css" rel="stylesheet">
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,600,0..1,-50..200&icon_names=search" />
+        <link href = "styles.css" rel="stylesheet">        
         <style>
             #query {
                 background-color: rgb(220, 131, 15);
@@ -15,11 +14,12 @@
             }
             .room {
                 background-color: rgb(127, 49, 4);
-                margin-left: 10vw;
-                margin-right: 10vw;
+                margin-left: 20vw;
+                margin-right: 20vw;
                 margin-bottom: 20px;
                 padding: 5px;
                 border-radius: 30px;
+                box-shadow: 0 10px 6px -1px rgba(0, 0, 0, 0.1);
             }
             a {
                 color: white;
@@ -33,6 +33,9 @@
         <br><br><br>
         <h1>Searching:</h1>
         <h1><span id="query"></span></h1>
+        <br>
+        <h3>Locate on Map <span id="searchTrigger" class="material-symbols-outlined iconLarge2-label">pin_drop</span></h3>
+        <h3>Walk to Location <span id="searchTrigger" class="material-symbols-outlined iconLarge2-label">directions_walk</span></h3>
         <h3>--------</h3>
         <br>
         <div id="results"><h3>Loading...</h3></div>
@@ -61,6 +64,9 @@
                     content += `<div class="room">
                         <h3>${data[i].name}</h3>
                         <h5><span>Floor ${data[i].floor}</span></h5>
+                         <span id="searchTrigger" class="material-symbols-outlined iconLarge2">pin_drop</span>
+                        <span id="searchTrigger" class="material-symbols-outlined iconLarge2">directions_walk</span>
+
                         </div>`;
                 }
             }
@@ -71,6 +77,5 @@
                 document.getElementById("results").innerHTML = "<h3>No results matched your search query</h3><h3><a href=index.html>Return Home</a></h3>";
             }
         })
-        // queryVal.toUpperCase()
     </script>
 </html>
