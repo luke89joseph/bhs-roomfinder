@@ -54,6 +54,8 @@
                     document.getElementById("results").innerHTML = `<div class="room">
                         <h3>${data[i].name}</h3>
                         <h5><span>Floor ${data[i].floor}</span></h5>
+                         <span id="searchTrigger" class="material-symbols-outlined iconLarge2">pin_drop</span>
+                        <span id="searchTrigger" class="material-symbols-outlined iconLarge2">directions_walk</span>
                         </div>`;
                     break;
                 }
@@ -66,7 +68,6 @@
                         <h5><span>Floor ${data[i].floor}</span></h5>
                          <span id="searchTrigger" class="material-symbols-outlined iconLarge2">pin_drop</span>
                         <span id="searchTrigger" class="material-symbols-outlined iconLarge2">directions_walk</span>
-
                         </div>`;
                 }
             }

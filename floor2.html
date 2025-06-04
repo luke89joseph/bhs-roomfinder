@@ -36,16 +36,15 @@
 <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
 
 <script>
-    const imageWidth = 314;
+        const imageWidth = 314;
         const imageHeight = 702;
-        const cellSize = 20;
 
         const bounds = [[0, 0], [imageHeight, imageWidth]];
 
         const map = L.map('map', {
             crs: L.CRS.Simple,
             minZoom: 0,
-            maxZoom: 10,
+            maxZoom: 3,
             maxBounds: bounds,
             maxBoundsViscosity: 1.0,
         });
