@@ -84,21 +84,7 @@
         if (sessionStorage.getItem("mapMode") == null) {
             window.location.href = "index.html";
         }
-        if (sessionStorage.getItem("mapMode") == "pathfind") {
-            fetch('rooms.json')
-                .then(response => response.json())
-                .then(function(data) {
-                    for (let i = 0; i < data.length; i++) {
-                        //Leaflet uses [Y, X] order
-                        if (data[i].floor == 2) {
-                            L.marker([702-data[i].coordY, data[i].coordX-300])
-                            .addTo(map)
-                            .bindPopup(data[i].name);
-                        }
-                    }
-                });
-        }
-        else if (sessionStorage.getItem("mapMode") == "locate") {
+        if (sessionStorage.getItem("mapMode") == "locate") {
             fetch('rooms.json')
                 .then(response => response.json())
                 .then(function(data) {
@@ -118,5 +104,63 @@
                     }
                 });
         }
+        else if (sessionStorage.getItem("mapMode") == "pathfind") {
+            fetch('rooms.json')
+                .then(response => response.json())
+                .then(function(data) {
+                    var loc1 = sessionStorage.getItem("loc1");
+                    var loc2 = sessionStorage.getItem("loc2");
+                    for (let i = 0; i < data.length; i++) {
+                        //Leaflet uses [Y, X] order
+                        if (data[i].floor == 2) {
+                            if (data[i].id == loc1) {
+                                L.marker([702-data[i].coordY, data[i].coordX-300], { icon: greenIcon })
+                                .addTo(map)
+                                .bindPopup(data[i].name);
+                            }
+                            else if (data[i].id == loc2) {
+                                L.marker([702-data[i].coordY, data[i].coordX-300], { icon: redIcon })
+                                .addTo(map)
+                                .bindPopup(data[i].name);
+                            }
+                            else {
+                                /*
+                                L.marker([702-data[i].coordY, data[i].coordX-300])
+                                .addTo(map)
+                                .bindPopup(data[i].name);
+                                */
+                            }
+                        }
+                    }
+                });
+        }
+
+        // pathfinding routes
+        let pathX = [];
+        let pathY = [];
+        
+        for (let i = 0; i < 22; i++) {
+            //L.marker([702-620+(i*25), 388-300]).addTo(map).bindPopup("k");
+            pathX.push(388-300);
+            pathY.push(702-620+(i*25));
+        }
+        for (let i = 0; i < 7; i++) {
+            //L.marker([702-95, 388-300+(i*25)]).addTo(map).bindPopup("k");
+            pathX.push(388-300+(i*25));
+            pathY.push(702-95);
+        }
+        for (let i = 0; i < 21; i++) {
+            //L.marker([702-120-(i*25), 388-150]).addTo(map).bindPopup("k");
+            pathX.push(388-300);
+            pathY.push(702-620+(i*25));
+        }
+        for (let i = 0; i < 5; i++) {
+            //L.marker([702-620, 388-275+(i*25)]).addTo(map).bindPopup("k");
+            pathX.push(388-300+(i*25));
+            pathY.push(702-95);
+        }
+
+        console.log(pathX);
+        
     </script>
 </html>

@@ -70,8 +70,9 @@
                     }}, 500);
                     setTimeout(function() {document.getElementById(`goTrigger_${data[i].id}`).onclick = function() {
                         sessionStorage.setItem("mapMode", "pathfind");
-                        sessionStorage.setItem("loc1", `${data[i].id}`)
-                        window.location.href=`floor${data[i].floor}.html`;
+                        sessionStorage.setItem("loc1", `${data[i].id}`);
+                        sessionStorage.setItem("locFloor", `${data[i].floor}`);
+                        window.location.href=`query2.html`;
                     }}, 1000);
                 }
             }

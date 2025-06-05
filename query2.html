@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Room Finder</title>
+        <link href = "styles.css" rel="stylesheet">        
+        <style>
+            #query {
+                background-color: rgb(220, 131, 15);
+                padding: 15px;
+                border-radius: 10px;
+                box-shadow: 0 10px 6px -1px rgba(0, 0, 0, 0.1);
+                text-align: center;
+                vertical-align: middle;
+            }
+            .room {
+                background-color: rgb(127, 49, 4);
+                margin-left: 20vw;
+                margin-right: 20vw;
+                margin-bottom: 20px;
+                padding: 5px;
+                border-radius: 30px;
+                box-shadow: 0 10px 6px -1px rgba(0, 0, 0, 0.1);
+            }
+            a {
+                color: white;
+            }
+            #par {
+                padding-left: 20px;
+                padding-right: 20px;
+            }
+            #placeholder_results {
+                background-color: rgb(79, 43, 13);
+                padding: 10px;
+                border-radius: 36px;
+            }
+        </style>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div id="header"></div>
+        <div id="space"></div>
+        <br><br><br>
+        <h1>Enter the room closest to you currently</h1>
+        <h3 id="par">If your destination is on a different floor, please locate a set of stairs or an elevator to reach your desired floor.</h3>
+        <span id="searchTrigger" class="material-symbols-outlined iconLarge">search</span>
+        <input class="searchbar" id="searchBranch" placeholder="Search Room Finder">
+        <br>
+        <h3>--------</h3>
+        <br>
+        <div id="results"><h3><span id="placeholder_results">Search results will appear here</span></h3></div>
+
+    </body>
+    <script src="main.js"></script>
+    <script>
+        let trigger = document.getElementById("searchTrigger");
+        trigger.onclick = function() {
+            loadSearch();
+        };
+
+        document.getElementById("searchBranch").addEventListener("keydown", function(event) {
+            if (event.key === "Enter") {
+            event.preventDefault();
+            loadSearch();
+            }
+        });
+    </script>
+    <script>
+        function loadSearch() {
+            document.getElementById("results").innerHTML = "";
+            let queryVal = document.getElementById("searchBranch").value;
+            fetch('rooms.json')
+            .then(response => response.json())
+            .then(function(data) {
+                let content = "";
+                let floor = sessionStorage.getItem("locFloor");
+                for (let i = 0; i < data.length; i++) {
+                    if (data[i].name.toUpperCase().includes(queryVal.toUpperCase()) && data[i].floor == floor) {
+                        content += "k";
+                        document.getElementById("results").innerHTML += 
+                        `<div class="room">
+                            <h3>${data[i].name}</h3>
+                            <h5><span>Floor ${data[i].floor}</span></h5>
+                            <span id="goTrigger_${data[i].id}" class="material-symbols-outlined iconLarge2">check</span></div>`;
+                        setTimeout(function() {document.getElementById(`goTrigger_${data[i].id}`).onclick = function() {
+                            sessionStorage.setItem("loc2", `${data[i].id}`);
+                            sessionStorage.removeItem("searchQuery");
+                            window.location.href=`floor${data[i].floor}.html`;
+                        }}, 500);
+                    }
+                }
+
+                if (content.length == 0) {
+                    document.getElementById("results").innerHTML = "<h3>No results matched your search query, try again.</h3>";
+                }
+            })
+        }
+    </script>
+</html>
