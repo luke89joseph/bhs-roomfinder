@@ -34,8 +34,8 @@
         <h1>Searching:</h1>
         <h1><span id="query"></span></h1>
         <br>
-        <h3>Locate on Map <span id="searchTrigger" class="material-symbols-outlined iconLarge2-label">pin_drop</span></h3>
-        <h3>Walk to Location <span id="searchTrigger" class="material-symbols-outlined iconLarge2-label">directions_walk</span></h3>
+        <h3>Locate on Map <span class="material-symbols-outlined iconLarge2-label">pin_drop</span></h3>
+        <h3>Walk to Location <span class="material-symbols-outlined iconLarge2-label">directions_walk</span></h3>
         <h3>--------</h3>
         <br>
         <div id="results"><h3>Loading...</h3></div>
@@ -49,32 +49,34 @@
         fetch('rooms.json')
         .then(response => response.json())
         .then(function(data) {
-            for (let i = 0; i < data.length; i++) {
-                if (queryVal.toUpperCase() === data[i].name.toUpperCase()) {
-                    document.getElementById("results").innerHTML = `<div class="room">
-                        <h3>${data[i].name}</h3>
-                        <h5><span>Floor ${data[i].floor}</span></h5>
-                         <span id="searchTrigger" class="material-symbols-outlined iconLarge2">pin_drop</span>
-                        <span id="searchTrigger" class="material-symbols-outlined iconLarge2">directions_walk</span>
-                        </div>`;
-                    break;
-                }
-            }
             let content = "";
             for (let i = 0; i < data.length; i++) {
                 if (data[i].name.toUpperCase().includes(queryVal.toUpperCase())) {
-                    content += `<div class="room">
+                    if (document.getElementById("results").innerHTML === "<h3>Loading...</h3>") {
+                        document.getElementById("results").innerHTML = "";
+                    }
+                    content += "k";
+                    document.getElementById("results").innerHTML += 
+                    `<div class="room">
                         <h3>${data[i].name}</h3>
                         <h5><span>Floor ${data[i].floor}</span></h5>
-                         <span id="searchTrigger" class="material-symbols-outlined iconLarge2">pin_drop</span>
-                        <span id="searchTrigger" class="material-symbols-outlined iconLarge2">directions_walk</span>
+                         <span id="searchTrigger_${data[i].id}" class="material-symbols-outlined iconLarge2">pin_drop</span>
+                         <span id="goTrigger_${data[i].id}" class="material-symbols-outlined iconLarge2">directions_walk</span>
                         </div>`;
+                    setTimeout(function() {document.getElementById(`searchTrigger_${data[i].id}`).onclick = function() {
+                        sessionStorage.setItem("mapMode", "locate");
+                        sessionStorage.setItem("loc1", `${data[i].id}`)
+                        window.location.href=`floor${data[i].floor}.html`;
+                    }}, 500);
+                    setTimeout(function() {document.getElementById(`goTrigger_${data[i].id}`).onclick = function() {
+                        sessionStorage.setItem("mapMode", "pathfind");
+                        sessionStorage.setItem("loc1", `${data[i].id}`)
+                        window.location.href=`floor${data[i].floor}.html`;
+                    }}, 1000);
                 }
             }
-            if (content.length > 0) {
-                document.getElementById("results").innerHTML = content;
-            }
-            else {
+
+            if (content.length == 0) {
                 document.getElementById("results").innerHTML = "<h3>No results matched your search query</h3><h3><a href=index.html>Return Home</a></h3>";
             }
         })

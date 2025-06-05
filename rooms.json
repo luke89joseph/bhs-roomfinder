@@ -1,344 +1,394 @@
 [
-    {
-      "name": "Gym",
-      "floor": 1,
-      "coordX": 880,
-      "coordY": 650
-    },
-    {
-      "name": "Lobby",
-      "floor": 1,
-      "coordX": 851,
-      "coordY": 653
-    },
-    {
-      "name": "Cafeteria",
-      "floor": 1,
-      "coordX": 661,
-      "coordY": 527
-    },
-    {
-      "name": "Auditorium",
-      "floor": 1,
-      "coordX": 672,
-      "coordY": 730
-    },
-    {
-      "name": "Maresca/CLIFF",
-      "floor": 1,
-      "coordX": 778,
-      "coordY": 677
-    },
-    {
-      "name": "Writing Lab",
-      "floor": 1,
-      "coordX": 778,
-      "coordY": 677
-    },
-    {
-      "name": "Math Lab",
-      "floor": 1,
-      "coordX": 554,
-      "coordY": 330
-    },
-    {
-      "name": "H130/Orchestra",
-      "floor": 1,
-      "coordX": 667,
-      "coordY": 671
-    },
-    {
-      "name": "H131/Band",
-      "floor": 1,
-      "coordX": 667,
-      "coordY": 671
-    },
-    {
-      "name": "H132/Dance Studio",
-      "floor": 1,
-      "coordX": 699,
-      "coordY": 616
-    },
-    {
-      "name": "H133",
-      "floor": 1,
-      "coordX": 699,
-      "coordY": 616
-    },
-    {
-      "name": "H113",
-      "floor": 1,
-      "coordX": 718,
-      "coordY": 586
-    },
-    {
-      "name": "H112",
-      "floor": 1,
-      "coordX": 718,
-      "coordY": 586
-    },
-    {
-      "name": "Elevator",
-      "floor": 1,
-      "coordX": 729,
-      "coordY": 535
-    },
-    {
-      "name": "H124",
-      "floor": 1,
-      "coordX": 776,
-      "coordY": 498
-    },
-    {
-      "name": "Guidance",
-      "floor": 1,
-      "coordX": 776,
-      "coordY": 498
-    },
-    {
-      "name": "H123",
-      "floor": 1,
-      "coordX": 776,
-      "coordY": 498
-    },
-    {
-      "name": "H122",
-      "floor": 1,
-      "coordX": 776,
-      "coordY": 498
-    },
-    {
-      "name": "H121",
-      "floor": 1,
-      "coordX": 803,
-      "coordY": 515
-    },
-    {
-      "name": "H120",
-      "floor": 1,
-      "coordX": 803,
-      "coordY": 515
-    },
-    {
-      "name": "H116",
-      "floor": 1,
-      "coordX": 839,
-      "coordY": 595
-    },
-    {
-      "name": "H117",
-      "floor": 1,
-      "coordX": 839,
-      "coordY": 595
-    },
-    {
-      "name": "Nurse",
-      "floor": 1,
-      "coordX": 841,
-      "coordY": 617
-    },
-    {
-      "name": "H104",
-      "floor": 1,
-      "coordX": 751,
-      "coordY": 698
-    },
-    {
-      "name": "H105",
-      "floor": 1,
-      "coordX": 751,
-      "coordY": 698
-    },
-    {
-      "name": "H103",
-      "floor": 1,
-      "coordX": 751,
-      "coordY": 698
-    },
-    {
-      "name": "H101",
-      "floor": 1,
-      "coordX": 783,
-      "coordY": 703
-    },
-    {
-      "name": "H102",
-      "floor": 1,
-      "coordX": 783,
-      "coordY": 703
-    },
-    {
-      "name": "H106",
-      "floor": 1,
-      "coordX": 783,
-      "coordY": 703
-    },
-    {
-      "name": "H100",
-      "floor": 1,
-      "coordX": 812,
-      "coordY": 700
-    },
-    {
-      "name": "H223/Achievement Center",
-      "floor": 2,
-      "coordX": 400,
-      "coordY": 310
-    },
-    {
-      "name": "Elevator",
-      "floor": 2,
-      "coordX": 360,
-      "coordY": 200
-    },
-    {
-      "name": "H200",
-      "floor": 2,
-      "coordX": 560,
-      "coordY": 490
-    },
-    {
-      "name": "H201",
-      "floor": 2,
-      "coordX": 520,
-      "coordY": 560
-    },
-    {
-      "name": "H203",
-      "floor": 2,
-      "coordX": 520,
-      "coordY": 530
-    },
-    {
-      "name": "H204",
-      "floor": 2,
-      "coordX": 560,
-      "coordY": 560
-    },
-    {
-      "name": "H206",
-      "floor": 2,
-      "coordX": 560,
-      "coordY": 640
-    },
-    {
-      "name": "H208",
-      "floor": 2,
-      "coordX": 500,
-      "coordY": 640
-    },
-    {
-      "name": "H210",
-      "floor": 2,
-      "coordX": 430,
-      "coordY": 640
-    },
-    {
-      "name": "H212",
-      "floor": 2,
-      "coordX": 375,
-      "coordY": 640
-    },
-    {
-      "name": "H214",
-      "floor": 2,
-      "coordX": 375,
-      "coordY": 580
-    },
-    {
-      "name": "H215",
-      "floor": 2,
-      "coordX": 410,
-      "coordY": 570
-    },
-    {
-      "name": "H216",
-      "floor": 2,
-      "coordX": 375,
-      "coordY": 545
-    },
-    {
-      "name": "H217",
-      "floor": 2,
-      "coordX": 410,
-      "coordY": 525
-    },
-    {
-      "name": "H218",
-      "floor": 2,
-      "coordX": 375,
-      "coordY": 500
-    },
-    {
-      "name": "H222",
-      "floor": 2,
-      "coordX": 400,
-      "coordY": 455
-    },
-    {
-      "name": "Teacher Lounge",
-      "floor": 2,
-      "coordX": 400,
-      "coordY": 380
-    },
-    {
-      "name": "H225",
-      "floor": 2,
-      "coordX": 500,
-      "coordY": 190
-    },
-    {
-      "name": "H226",
-      "floor": 2,
-      "coordX": 510,
-      "coordY": 390
-    },
-    {
-      "name": "H228",
-      "floor": 2,
-      "coordX": 510,
-      "coordY": 300
-    },
-    {
-      "name": "H229",
-      "floor": 2,
-      "coordX": 510,
-      "coordY": 240
-    },
-    {
-      "name": "H230",
-      "floor": 2,
-      "coordX": 560,
-      "coordY": 110
-    },
-    {
-      "name": "H231",
-      "floor": 2,
-      "coordX": 538,
-      "coordY": 80
-    },
-    {
-      "name": "H232",
-      "floor": 2,
-      "coordX": 495,
-      "coordY": 80
-    },
-    {
-      "name": "H233",
-      "floor": 2,
-      "coordX": 455,
-      "coordY": 80
-    },
-    {
-      "name": "H234",
-      "floor": 2,
-      "coordX": 400,
-      "coordY": 80
-    },
-    {
-      "name": "Wellness Center",
-      "floor": 2,
-      "coordX": 420,
-      "coordY": 120
-    }
-  ]
+  {
+    "name": "Gym",
+    "floor": 1,
+    "coordX": 880,
+    "coordY": 650,
+    "id": 1
+  },
+  {
+    "name": "Lobby",
+    "floor": 1,
+    "coordX": 851,
+    "coordY": 653,
+    "id": 2
+  },
+  {
+    "name": "Cafeteria",
+    "floor": 1,
+    "coordX": 661,
+    "coordY": 527,
+    "id": 3
+  },
+  {
+    "name": "Auditorium",
+    "floor": 1,
+    "coordX": 672,
+    "coordY": 730,
+    "id": 4
+  },
+  {
+    "name": "Writing Lab",
+    "floor": 1,
+    "coordX": 778,
+    "coordY": 677,
+    "id": 5
+  },
+  {
+    "name": "Math Lab",
+    "floor": 1,
+    "coordX": 554,
+    "coordY": 330,
+    "id": 6
+  },
+  {
+    "name": "H130/Orchestra",
+    "floor": 1,
+    "coordX": 667,
+    "coordY": 671,
+    "id": 7
+  },
+  {
+    "name": "H131/Band",
+    "floor": 1,
+    "coordX": 667,
+    "coordY": 671,
+    "id": 8
+  },
+  {
+    "name": "H132/Dance Studio",
+    "floor": 1,
+    "coordX": 699,
+    "coordY": 616,
+    "id": 9
+  },
+  {
+    "name": "H133",
+    "floor": 1,
+    "coordX": 699,
+    "coordY": 616,
+    "id": 10
+  },
+  {
+    "name": "H113",
+    "floor": 1,
+    "coordX": 718,
+    "coordY": 586,
+    "id": 11
+  },
+  {
+    "name": "H112",
+    "floor": 1,
+    "coordX": 718,
+    "coordY": 586,
+    "id": 12
+  },
+  {
+    "name": "Elevator",
+    "floor": 1,
+    "coordX": 729,
+    "coordY": 535,
+    "id": 13
+  },
+  {
+    "name": "H124",
+    "floor": 1,
+    "coordX": 776,
+    "coordY": 498,
+    "id": 14
+  },
+  {
+    "name": "Guidance Office",
+    "floor": 1,
+    "coordX": 776,
+    "coordY": 498,
+    "id": 15
+  },
+  {
+    "name": "H123",
+    "floor": 1,
+    "coordX": 776,
+    "coordY": 498,
+    "id": 16
+  },
+  {
+    "name": "H122",
+    "floor": 1,
+    "coordX": 776,
+    "coordY": 498,
+    "id": 17
+  },
+  {
+    "name": "H121",
+    "floor": 1,
+    "coordX": 803,
+    "coordY": 515,
+    "id": 18
+  },
+  {
+    "name": "H120",
+    "floor": 1,
+    "coordX": 803,
+    "coordY": 515,
+    "id": 19
+  },
+  {
+    "name": "H116",
+    "floor": 1,
+    "coordX": 839,
+    "coordY": 595,
+    "id": 20
+  },
+  {
+    "name": "H117",
+    "floor": 1,
+    "coordX": 839,
+    "coordY": 595,
+    "id": 21
+  },
+  {
+    "name": "Nurse",
+    "floor": 1,
+    "coordX": 841,
+    "coordY": 617,
+    "id": 22
+  },
+  {
+    "name": "H104",
+    "floor": 1,
+    "coordX": 751,
+    "coordY": 698,
+    "id": 23
+  },
+  {
+    "name": "H105",
+    "floor": 1,
+    "coordX": 751,
+    "coordY": 698,
+    "id": 24
+  },
+  {
+    "name": "H103",
+    "floor": 1,
+    "coordX": 751,
+    "coordY": 698,
+    "id": 25
+  },
+  {
+    "name": "H101",
+    "floor": 1,
+    "coordX": 783,
+    "coordY": 703,
+    "id": 26
+  },
+  {
+    "name": "H102",
+    "floor": 1,
+    "coordX": 783,
+    "coordY": 703,
+    "id": 27
+  },
+  {
+    "name": "H106",
+    "floor": 1,
+    "coordX": 783,
+    "coordY": 703,
+    "id": 28
+  },
+  {
+    "name": "H100",
+    "floor": 1,
+    "coordX": 812,
+    "coordY": 700,
+    "id": 29
+  },
+  {
+    "name": "H223/Achievement Center",
+    "floor": 2,
+    "coordX": 400,
+    "coordY": 310,
+    "id": 30
+  },
+  {
+    "name": "Elevator",
+    "floor": 2,
+    "coordX": 360,
+    "coordY": 200,
+    "id": 31
+  },
+  {
+    "name": "H200",
+    "floor": 2,
+    "coordX": 560,
+    "coordY": 490,
+    "id": 32
+  },
+  {
+    "name": "H201",
+    "floor": 2,
+    "coordX": 520,
+    "coordY": 560,
+    "id": 33
+  },
+  {
+    "name": "H203",
+    "floor": 2,
+    "coordX": 520,
+    "coordY": 530,
+    "id": 34
+  },
+  {
+    "name": "H204",
+    "floor": 2,
+    "coordX": 560,
+    "coordY": 560,
+    "id": 35
+  },
+  {
+    "name": "H206",
+    "floor": 2,
+    "coordX": 560,
+    "coordY": 640,
+    "id": 36
+  },
+  {
+    "name": "H208",
+    "floor": 2,
+    "coordX": 500,
+    "coordY": 640,
+    "id": 37
+  },
+  {
+    "name": "H210",
+    "floor": 2,
+    "coordX": 430,
+    "coordY": 640,
+    "id": 38
+  },
+  {
+    "name": "H212",
+    "floor": 2,
+    "coordX": 375,
+    "coordY": 640,
+    "id": 39
+  },
+  {
+    "name": "H214",
+    "floor": 2,
+    "coordX": 375,
+    "coordY": 580,
+    "id": 40
+  },
+  {
+    "name": "H215",
+    "floor": 2,
+    "coordX": 410,
+    "coordY": 570,
+    "id": 41
+  },
+  {
+    "name": "H216",
+    "floor": 2,
+    "coordX": 375,
+    "coordY": 545,
+    "id": 42
+  },
+  {
+    "name": "H217",
+    "floor": 2,
+    "coordX": 410,
+    "coordY": 525,
+    "id": 43
+  },
+  {
+    "name": "H218",
+    "floor": 2,
+    "coordX": 375,
+    "coordY": 500,
+    "id": 44
+  },
+  {
+    "name": "Teacher Lounge",
+    "floor": 2,
+    "coordX": 400,
+    "coordY": 455,
+    "id": 45
+  },
+  {
+    "name": "H222",
+    "floor": 2,
+    "coordX": 400,
+    "coordY": 380,
+    "id": 46
+  },
+  {
+    "name": "H225",
+    "floor": 2,
+    "coordX": 500,
+    "coordY": 190,
+    "id": 47
+  },
+  {
+    "name": "H226",
+    "floor": 2,
+    "coordX": 510,
+    "coordY": 390,
+    "id": 48
+  },
+  {
+    "name": "H228",
+    "floor": 2,
+    "coordX": 510,
+    "coordY": 300,
+    "id": 49
+  },
+  {
+    "name": "H229",
+    "floor": 2,
+    "coordX": 510,
+    "coordY": 240,
+    "id": 50
+  },
+  {
+    "name": "H230",
+    "floor": 2,
+    "coordX": 560,
+    "coordY": 110,
+    "id": 51
+  },
+  {
+    "name": "H231",
+    "floor": 2,
+    "coordX": 538,
+    "coordY": 80,
+    "id": 52
+  },
+  {
+    "name": "H232",
+    "floor": 2,
+    "coordX": 495,
+    "coordY": 80,
+    "id": 53
+  },
+  {
+    "name": "H233",
+    "floor": 2,
+    "coordX": 455,
+    "coordY": 80,
+    "id": 54
+  },
+  {
+    "name": "H234",
+    "floor": 2,
+    "coordX": 400,
+    "coordY": 80,
+    "id": 55
+  },
+  {
+    "name": "Wellness Center",
+    "floor": 2,
+    "coordX": 420,
+    "coordY": 120,
+    "id": 56
+  }
+]

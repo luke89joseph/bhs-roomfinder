@@ -27,15 +27,40 @@
             body {
                 background-color: rgb(225, 220, 210);
             }
+            #return {
+                position: fixed;
+                z-index: 1000;
+                top: 5%;
+                right: 5vw;
+            }
         </style>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
         <div id="map"></div>
+        <a href="index.html"><span id="return" class="material-symbols-outlined iconLarge">chevron_left</span></a>
     </body>
 <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
 
 <script>
+    const redIcon = new L.Icon({
+        iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-red.png',
+        shadowUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png',
+        iconSize: [25, 41],
+        iconAnchor: [12, 41],
+        popupAnchor: [1, -34],
+        shadowSize: [41, 41]
+    });
+
+    const greenIcon = new L.Icon({
+        iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-green.png',
+        shadowUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png',
+        iconSize: [25, 41],
+        iconAnchor: [12, 41],
+        popupAnchor: [1, -34],
+        shadowSize: [41, 41]
+    });
+
         const imageWidth = 314;
         const imageHeight = 702;
 
@@ -56,18 +81,42 @@
         map.fitBounds(bounds);
 
         // Load room markers from JSON
-        fetch('rooms.json')
-            .then(response => response.json())
-            .then(function(data) {
-                for (let i = 0; i < data.length; i++) {
-                    //Leaflet uses [Y, X] order
-                    if (data[i].floor == 2) {
-                        L.marker([702-data[i].coordY, data[i].coordX-300])
-                        .addTo(map)
-                        .bindPopup(data[i].name);
+        if (sessionStorage.getItem("mapMode") == null) {
+            window.location.href = "index.html";
+        }
+        if (sessionStorage.getItem("mapMode") == "pathfind") {
+            fetch('rooms.json')
+                .then(response => response.json())
+                .then(function(data) {
+                    for (let i = 0; i < data.length; i++) {
+                        //Leaflet uses [Y, X] order
+                        if (data[i].floor == 2) {
+                            L.marker([702-data[i].coordY, data[i].coordX-300])
+                            .addTo(map)
+                            .bindPopup(data[i].name);
+                        }
                     }
-                }
-            });
-
+                });
+        }
+        else if (sessionStorage.getItem("mapMode") == "locate") {
+            fetch('rooms.json')
+                .then(response => response.json())
+                .then(function(data) {
+                    let corrID = sessionStorage.getItem("loc1");
+                    for (let i = 0; i < data.length; i++) {
+                        //Leaflet uses [Y, X] order
+                        if (data[i].floor == 2 && data[i].id == corrID) {
+                            L.marker([702-data[i].coordY, data[i].coordX-300], { icon: greenIcon })
+                            .addTo(map)
+                            .bindPopup(data[i].name);
+                        }
+                        else if (data[i].floor == 2) {
+                            L.marker([702-data[i].coordY, data[i].coordX-300])
+                            .addTo(map)
+                            .bindPopup(data[i].name);
+                        }
+                    }
+                });
+        }
     </script>
 </html>
