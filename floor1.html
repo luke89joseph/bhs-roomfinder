@@ -62,21 +62,22 @@
         shadowSize: [41, 41]
     });
 
-        const imageWidth = 314;
-        const imageHeight = 702;
+        // 952 × 712 pixels
+        const imageWidth = 952;
+        const imageHeight = 712;
 
         const bounds = [[0, 0], [imageHeight, imageWidth]];
 
         const map = L.map('map', {
             crs: L.CRS.Simple,
             minZoom: 0,
-            maxZoom: 2,
+            maxZoom: 0.75,
             maxBounds: bounds,
             maxBoundsViscosity: 1.0,
         });
 
 
-        const image = L.imageOverlay('images/map2.png', bounds).addTo(map);
+        const image = L.imageOverlay('images/map1.png', bounds).addTo(map);
         map.fitBounds(bounds);
 
 
@@ -90,12 +91,12 @@
                     let corrID = sessionStorage.getItem("loc1");
                     for (let i = 0; i < data.length; i++) {
                         //Leaflet uses [Y, X] order
-                        if (data[i].floor == 2 && data[i].id == corrID) {
+                        if (data[i].floor == 1 && data[i].id == corrID) {
                             L.marker([702-data[i].coordY, data[i].coordX-300], { icon: greenIcon })
                             .addTo(map)
                             .bindPopup(data[i].name);
                         }
-                        else if (data[i].floor == 2) {
+                        else if (data[i].floor == 1) {
                             L.marker([702-data[i].coordY, data[i].coordX-300])
                             .addTo(map)
                             .bindPopup(data[i].name);
@@ -111,7 +112,7 @@
                     var loc2 = sessionStorage.getItem("loc2");
                     for (let i = 0; i < data.length; i++) {
                         //Leaflet uses Y, X order!!!!
-                        if (data[i].floor == 2) {
+                        if (data[i].floor == 1)  {
                             if (data[i].id == loc1) {
                                 L.marker([702-data[i].coordY, data[i].coordX-300], { icon: greenIcon })
                                 .addTo(map)

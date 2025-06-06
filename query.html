@@ -34,8 +34,10 @@
         <h1>Searching:</h1>
         <h1><span id="query"></span></h1>
         <br>
-        <h3>Locate on Map <span class="material-symbols-outlined iconLarge2-label">pin_drop</span></h3>
-        <h3>Walk to Location <span class="material-symbols-outlined iconLarge2-label">directions_walk</span></h3>
+        <h3>Locate on Map: <span class="material-symbols-outlined iconLarge2-label">pin_drop</span></h3>
+        <h3>Walk to Location: <span class="material-symbols-outlined iconLarge2-label">directions_walk</span></h3>
+        <h3>Set to My Location: <span class="material-symbols-outlined iconLarge2-label">my_location</span></h3>
+
         <h3>--------</h3>
         <br>
         <div id="results"><h3>Loading...</h3></div>
@@ -62,6 +64,7 @@
                         <h5><span>Floor ${data[i].floor}</span></h5>
                          <span id="searchTrigger_${data[i].id}" class="material-symbols-outlined iconLarge2">pin_drop</span>
                          <span id="goTrigger_${data[i].id}" class="material-symbols-outlined iconLarge2">directions_walk</span>
+                         <span id="goTrigger2_${data[i].id}" class="material-symbols-outlined iconLarge2">my_location</span>
                         </div>`;
                     setTimeout(function() {document.getElementById(`searchTrigger_${data[i].id}`).onclick = function() {
                         sessionStorage.setItem("mapMode", "locate");
@@ -73,7 +76,13 @@
                         sessionStorage.setItem("loc1", `${data[i].id}`);
                         sessionStorage.setItem("locFloor", `${data[i].floor}`);
                         window.location.href=`query2.html`;
-                    }}, 1000);
+                    }}, 600);
+                    setTimeout(function() {document.getElementById(`goTrigger2_${data[i].id}`).onclick = function() {
+                        sessionStorage.setItem("mapMode", "pathfind");
+                        sessionStorage.setItem("loc2", `${data[i].id}`);
+                        sessionStorage.setItem("locFloor", `${data[i].floor}`);
+                        window.location.href=`query3.html`;
+                    }}, 600);
                 }
             }
 

@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100..800");
-@import url("https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,600,0..1,-50..200&icon_names=check,chevron_left,directions_walk,pin_drop,search");
+@import url("https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,600,0..1,-50..200&icon_names=check,chevron_left,directions_walk,my_location,pin_drop,search");
 
 h1 {
     font-family: Rockwell, Montserrat;
@@ -75,6 +75,10 @@ body {
     user-select: none;
     -webkit-user-select: none;
     cursor: pointer;
+    transition: transform 1s;
+}
+.iconLarge:hover {
+    transform: rotate(10deg);
 }
 .iconLarge2 {
     background-color: rgb(72, 34, 8);
@@ -87,9 +91,13 @@ body {
     user-select: none;
     -webkit-user-select: none;
     cursor: pointer;
+    transition: transform 1s;
+}
+.iconLarge2:hover {
+    transform: rotate(-20deg);
 }
 .iconLarge2-label {
-    background-color: rgb(72, 34, 8);
+    background-color: none;
     padding: 6px;
     margin: 5px;
     border-radius: 360px;
@@ -98,5 +106,6 @@ body {
     color: rgb(244, 244, 247);
     user-select: none;
     -webkit-user-select: none;
-    box-shadow: 0 10px 4px -1px rgba(0, 0, 0, 0.1);
+
+    transform-origin: center;
 }
