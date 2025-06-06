@@ -21,7 +21,7 @@
             }
             #map {
                 width: 100%;
-                height: 100vh; /* Give it a visible height */
+                height: 100vh;
                 z-index: 0;
             }
             body {
@@ -69,18 +69,16 @@
         const map = L.map('map', {
             crs: L.CRS.Simple,
             minZoom: 0,
-            maxZoom: 3,
+            maxZoom: 2,
             maxBounds: bounds,
             maxBoundsViscosity: 1.0,
         });
 
-        // Load the image overlay
-        const image = L.imageOverlay('images/map2.png', bounds).addTo(map);
 
-        // Fit the map view to the image
+        const image = L.imageOverlay('images/map2.png', bounds).addTo(map);
         map.fitBounds(bounds);
 
-        // Load room markers from JSON
+
         if (sessionStorage.getItem("mapMode") == null) {
             window.location.href = "index.html";
         }
@@ -111,56 +109,176 @@
                     var loc1 = sessionStorage.getItem("loc1");
                     var loc2 = sessionStorage.getItem("loc2");
                     for (let i = 0; i < data.length; i++) {
-                        //Leaflet uses [Y, X] order
+                        //Leaflet uses Y, X order!!!!
                         if (data[i].floor == 2) {
                             if (data[i].id == loc1) {
                                 L.marker([702-data[i].coordY, data[i].coordX-300], { icon: greenIcon })
                                 .addTo(map)
                                 .bindPopup(data[i].name);
                             }
+                        
                             else if (data[i].id == loc2) {
                                 L.marker([702-data[i].coordY, data[i].coordX-300], { icon: redIcon })
                                 .addTo(map)
                                 .bindPopup(data[i].name);
                             }
                             else {
-                                /*
+                                
                                 L.marker([702-data[i].coordY, data[i].coordX-300])
                                 .addTo(map)
                                 .bindPopup(data[i].name);
-                                */
+                                
+                                
                             }
                         }
                     }
+
+                    let path = [];
+                    // y, x, index
+                    let count = 1;
+                    
+                    for (let i = 0; i < 22; i++) {
+                        //L.marker([702-620+(i*25), 388-300]).addTo(map).bindPopup(`${count}`);
+                        //pathX.push(388-300);
+                        //pathY.push(702-620+(i*25));
+                        path.push([702-620+(i*25), 388-300, count]);
+                        count++;
+
+                    }
+                    
+                    for (let i = 0; i < 7; i++) {
+                        //L.marker([702-95, 388-300+(i*25)]).addTo(map).bindPopup(`${count}`);
+                        //pathX.push(388-300+(i*25));
+                        //pathY.push(702-95);
+                        path.push([702-95, 388-300+(i*25), count]);
+                        count++;
+                    }
+                    for (let i = 0; i < 20; i++) {
+                        //L.marker([702-120-(i*25), 388-150]).addTo(map).bindPopup(`${count}`);
+                        //pathX.push(388-300);
+                        //pathY.push(702-620+(i*25));
+
+                        path.push([702-120-(i*25), 388-150, count]);
+                        count++;
+                    }
+            
+                    for (let i = 5; i >= 0; i-=1) {
+                        //L.marker([702-620, 388-275+(i*25)]).addTo(map).bindPopup(`${count}`);
+                        //pathX.push(388-300+(i*25));
+                        //pathY.push(702-95);
+                        path.push([702-620, 388-275+(i*25), count]);
+                        count++;
+                    }
+                    
+                    let dis = 1000000;
+                    let loc1Gate = 1;
+
+                    //console.log("-" + loc1);
+
+                    let x = data[loc1 - 1].coordX - 300;       // Map X
+                    let y = 702 - data[loc1 - 1].coordY;       // Map Y
+                    // in leaflet, these get flipped, but my brain hurts any other way
+
+                    for (let i = 0; i < path.length; i++) {
+                        let yN = path[i][0]; // already adjusted
+                        let xN = path[i][1]; // 
+
+                        let xDiff = Math.abs(xN - x);
+                        let yDiff = Math.abs(yN - y);
+                        let allDiff = xDiff + yDiff;
+
+                        if (dis > allDiff) {
+                            dis = allDiff;
+                            loc1Gate = i;
+                        }
+                    }
+
+                    console.log(loc1Gate);
+
+                    dis = 1000000;
+                    let loc2Gate = 1;
+
+                    //console.log("-" + loc1);
+
+                    x = data[loc2 - 1].coordX - 300;       
+                    y = 702 - data[loc2 - 1].coordY;   
+
+                    for (let i = 0; i < path.length; i++) {
+                        let yN = path[i][0]; // already adjusted
+                        let xN = path[i][1]; // 
+
+                        let xDiff = Math.abs(xN - x);
+                        let yDiff = Math.abs(yN - y);
+                        let allDiff = xDiff + yDiff;
+
+                        if (dis > allDiff) {
+                            dis = allDiff;
+                            loc2Gate = i;
+                        }
+                    }
+
+                    console.log(loc2Gate);
+
+                    let r1 = 0; // length of route 1
+                    let r2 = 0; // length of route 2
+                    let route = []; //  route steps
+                    if (loc2Gate > loc1Gate) {
+
+                        r1 = loc2Gate - loc1Gate;
+                        r2 = path.length - loc2Gate;
+                        r2 += loc1Gate;
+
+                        if (r1 <= r2) {
+                            for (let i = 0; i < r1; i++) {
+                                route.push(loc1Gate+i);
+                            }
+                        }
+                        else {
+                            for (let i = loc2Gate; i < path.length; i++) {
+                                route.push(i);
+                            }
+                            for (let i = 0; i < loc1Gate; i++) {
+                                route.push(i);
+                            }
+                        }
+                        
+                    }
+                    else {
+                        r1 = loc1Gate - loc2Gate;
+                        r2 = path.length - loc1Gate;
+                        r2 += loc2Gate;
+
+                        if (r1 <= r2) {
+                            for (let i = 0; i < r1; i++) {
+                                route.push(loc2Gate+i);
+                            }
+                        }
+                        else {
+                            for (let i = loc1Gate; i < path.length; i++) {
+                                route.push(i);
+                            }
+                            for (let i = 0; i < loc2Gate; i++) {
+                                route.push(i);
+                            }
+                        }
+                    }
+                    console.log(route);
+
+                    var line = [];
+                    for (let i = 0; i < route.length; i++) {
+                        let x = path[route[i]][1];
+                        let y = path[route[i]][0];
+                        line.push([y, x]);
+                    }
+
+                    var polyline = L.polyline(line, {color: 'red'}).addTo(map);
+
+                    // zoom the map to the polyline
+                    map.fitBounds(polyline.getBounds());
+
                 });
         }
 
-        // pathfinding routes
-        let pathX = [];
-        let pathY = [];
-        
-        for (let i = 0; i < 22; i++) {
-            //L.marker([702-620+(i*25), 388-300]).addTo(map).bindPopup("k");
-            pathX.push(388-300);
-            pathY.push(702-620+(i*25));
-        }
-        for (let i = 0; i < 7; i++) {
-            //L.marker([702-95, 388-300+(i*25)]).addTo(map).bindPopup("k");
-            pathX.push(388-300+(i*25));
-            pathY.push(702-95);
-        }
-        for (let i = 0; i < 21; i++) {
-            //L.marker([702-120-(i*25), 388-150]).addTo(map).bindPopup("k");
-            pathX.push(388-300);
-            pathY.push(702-620+(i*25));
-        }
-        for (let i = 0; i < 5; i++) {
-            //L.marker([702-620, 388-275+(i*25)]).addTo(map).bindPopup("k");
-            pathX.push(388-300+(i*25));
-            pathY.push(702-95);
-        }
-
-        console.log(pathX);
         
     </script>
 </html>
