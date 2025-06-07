@@ -1,0 +1,407 @@
+[
+  {
+    "name": "Gym",
+    "floor": 1,
+    "coordX": 730,
+    "coordY": 405,
+    "id": 1,
+    "grid": 1
+  },
+  {
+    "name": "Lobby",
+    "floor": 1,
+    "coordX": 690,
+    "coordY": 420,
+    "id": 2,
+    "grid": 1
+  },
+  {
+    "name": "Main Office",
+    "floor": 1,
+    "coordX": 680,
+    "coordY": 445,
+    "id": 3,
+    "grid": 1
+  },
+  {
+    "name": "Cafeteria/Substation",
+    "floor": 1,
+    "coordX": 300,
+    "coordY": 170,
+    "id": 4,
+    "grid": 5
+  },
+  {
+    "name": "Troy Lecture Hall",
+    "floor": 1,
+    "coordX": 450,
+    "coordY": 300,
+    "id": 5,
+    "grid": 3
+  },
+  {
+    "name": "Music Theory",
+    "floor": 1,
+    "coordX": 380,
+    "coordY": 280,
+    "id": 6,
+    "grid": 3
+  },
+  {
+    "name": "Auditorium",
+    "floor": 1,
+    "coordX": 280,
+    "coordY": 580,
+    "id": 7,
+    "grid": 5
+  },
+  {
+    "name": "Writing Lab",
+    "floor": 1,
+    "coordX": 570,
+    "coordY": 360,
+    "id": 8,
+    "grid": 3
+  },
+  {
+    "name": "Math Lab",
+    "floor": 1,
+    "coordX": 570,
+    "coordY": 390,
+    "id": 9,
+    "grid": 3
+  },
+  {
+    "name": "H130/Orchestra",
+    "floor": 1,
+    "coordX": 280,
+    "coordY": 455,
+    "id": 10,
+    "grid": 5
+  },
+  {
+    "name": "H131/Band",
+    "floor": 1,
+    "coordX": 235,
+    "coordY": 430,
+    "id": 11,
+    "grid": 5
+  },
+  {
+    "name": "H132/Dance Studio",
+    "floor": 1,
+    "coordX": 280,
+    "coordY": 415,
+    "id": 12,
+    "grid": 5
+  },
+  {
+    "name": "H133",
+    "floor": 1,
+    "coordX": 310,
+    "coordY": 310,
+    "id": 13,
+    "grid": 5
+  },
+  {
+    "name": "H124",
+    "floor": 1,
+    "coordX": 465,
+    "coordY": 55,
+    "id": 14,
+    "grid": 4
+  },
+  {
+    "name": "Elevator",
+    "floor": 1,
+    "coordX": 430,
+    "coordY": 180,
+    "id": 15,
+    "grid": 6
+  },
+  {
+    "name": "H120",
+    "floor": 1,
+    "coordX": 590,
+    "coordY": 145,
+    "id": 16,
+    "grid": 4
+  },
+  {
+    "name": "Guidance Office",
+    "floor": 1,
+    "coordX": 460,
+    "coordY": 145,
+    "id": 17,
+    "grid": 4
+  },
+  {
+    "name": "H123",
+    "floor": 1,
+    "coordX": 515,
+    "coordY": 55,
+    "id": 18,
+    "grid": 4
+  },
+  {
+    "name": "H122",
+    "floor": 1,
+    "coordX": 550,
+    "coordY": 55,
+    "id": 19,
+    "grid": 4
+  },
+  {
+    "name": "H121",
+    "floor": 1,
+    "coordX": 600,
+    "coordY": 55,
+    "id": 20,
+    "grid": 4
+  },
+  {
+    "name": "H117/H706",
+    "floor": 1,
+    "coordX": 645,
+    "coordY": 295,
+    "id": 21
+  },
+  {
+    "name": "Technology Department",
+    "floor": 1,
+    "coordX": 600,
+    "coordY": 265,
+    "id": 22
+  },
+  {
+    "name": "Nurse",
+    "floor": 1,
+    "coordX": 645,
+    "coordY": 345,
+    "id": 23
+  },
+  {
+    "name": "H104",
+    "floor": 1,
+    "coordX": 440,
+    "coordY": 500,
+    "id": 24
+  },
+  {
+    "name": "H103",
+    "floor": 1,
+    "coordX": 440,
+    "coordY": 555,
+    "id": 25
+  },
+  {
+    "name": "H101",
+    "floor": 1,
+    "coordX": 565,
+    "coordY": 570,
+    "id": 26
+  },
+  {
+    "name": "H100",
+    "floor": 1,
+    "coordX": 610,
+    "coordY": 550,
+    "id": 27
+  },
+  {
+    "name": "H701/Science Research Lab",
+    "floor": 1,
+    "coordX": 535,
+    "coordY": 180,
+    "id": 28
+  },
+  {
+    "name": "H223/Achievement Center",
+    "floor": 2,
+    "coordX": 400,
+    "coordY": 310,
+    "id": 29
+  },
+  {
+    "name": "Elevator",
+    "floor": 2,
+    "coordX": 360,
+    "coordY": 200,
+    "id": 30
+  },
+  {
+    "name": "H200",
+    "floor": 2,
+    "coordX": 560,
+    "coordY": 490,
+    "id": 31
+  },
+  {
+    "name": "H201",
+    "floor": 2,
+    "coordX": 520,
+    "coordY": 560,
+    "id": 32
+  },
+  {
+    "name": "H203",
+    "floor": 2,
+    "coordX": 520,
+    "coordY": 530,
+    "id": 33
+  },
+  {
+    "name": "H204",
+    "floor": 2,
+    "coordX": 560,
+    "coordY": 560,
+    "id": 34
+  },
+  {
+    "name": "H206",
+    "floor": 2,
+    "coordX": 560,
+    "coordY": 640,
+    "id": 35
+  },
+  {
+    "name": "H208",
+    "floor": 2,
+    "coordX": 500,
+    "coordY": 640,
+    "id": 36
+  },
+  {
+    "name": "H210",
+    "floor": 2,
+    "coordX": 430,
+    "coordY": 640,
+    "id": 37
+  },
+  {
+    "name": "H212",
+    "floor": 2,
+    "coordX": 375,
+    "coordY": 640,
+    "id": 38
+  },
+  {
+    "name": "H214",
+    "floor": 2,
+    "coordX": 375,
+    "coordY": 580,
+    "id": 39
+  },
+  {
+    "name": "H215",
+    "floor": 2,
+    "coordX": 410,
+    "coordY": 570,
+    "id": 40
+  },
+  {
+    "name": "H216",
+    "floor": 2,
+    "coordX": 375,
+    "coordY": 545,
+    "id": 41
+  },
+  {
+    "name": "H217",
+    "floor": 2,
+    "coordX": 410,
+    "coordY": 525,
+    "id": 42
+  },
+  {
+    "name": "H218",
+    "floor": 2,
+    "coordX": 375,
+    "coordY": 500,
+    "id": 43
+  },
+  {
+    "name": "Teacher Lounge",
+    "floor": 2,
+    "coordX": 400,
+    "coordY": 455,
+    "id": 44
+  },
+  {
+    "name": "H222",
+    "floor": 2,
+    "coordX": 400,
+    "coordY": 380,
+    "id": 45
+  },
+  {
+    "name": "H225",
+    "floor": 2,
+    "coordX": 500,
+    "coordY": 190,
+    "id": 46
+  },
+  {
+    "name": "H226",
+    "floor": 2,
+    "coordX": 510,
+    "coordY": 390,
+    "id": 47
+  },
+  {
+    "name": "H228",
+    "floor": 2,
+    "coordX": 510,
+    "coordY": 300,
+    "id": 48
+  },
+  {
+    "name": "H229",
+    "floor": 2,
+    "coordX": 510,
+    "coordY": 240,
+    "id": 49
+  },
+  {
+    "name": "H230",
+    "floor": 2,
+    "coordX": 560,
+    "coordY": 110,
+    "id": 50
+  },
+  {
+    "name": "H231",
+    "floor": 2,
+    "coordX": 538,
+    "coordY": 80,
+    "id": 51
+  },
+  {
+    "name": "H232",
+    "floor": 2,
+    "coordX": 495,
+    "coordY": 80,
+    "id": 52
+  },
+  {
+    "name": "H233",
+    "floor": 2,
+    "coordX": 455,
+    "coordY": 80,
+    "id": 53
+  },
+  {
+    "name": "H234",
+    "floor": 2,
+    "coordX": 400,
+    "coordY": 80,
+    "id": 54
+  },
+  {
+    "name": "Wellness Center",
+    "floor": 2,
+    "coordX": 420,
+    "coordY": 120,
+    "id": 55
+  }
+]

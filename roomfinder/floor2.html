@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Room Finder</title>
+        <link href = "styles.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+        <style>
+            #imgHome {
+                width: 100%;
+                margin: 0;
+                border-bottom-right-radius: 35px;
+                border-bottom-left-radius: 35px;
+                box-shadow: 0 20px 10px -1px rgba(0, 0, 0, 0.1);
+                -webkit-user-drag: none;
+                -webkit-user-select: none;
+                user-select: none;
+            }
+            #periodTag {
+                user-select: none;
+                -webkit-user-select: none;
+            }
+            #map {
+                width: 100%;
+                height: 100vh;
+                z-index: 0;
+            }
+            body {
+                background-color: rgb(225, 220, 210);
+            }
+            #return {
+                position: fixed;
+                z-index: 1000;
+                top: 5%;
+                right: 5vw;
+                opacity: 85%;
+            }
+        </style>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div id="map"></div>
+        <a href="index.html"><span id="return" class="material-symbols-outlined iconLarge">chevron_left</span></a>
+    </body>
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+<script>
+    const redIcon = new L.Icon({
+        iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-red.png',
+        shadowUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png',
+        iconSize: [25, 41],
+        iconAnchor: [12, 41],
+        popupAnchor: [1, -34],
+        shadowSize: [41, 41]
+    });
+
+    const greenIcon = new L.Icon({
+        iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-green.png',
+        shadowUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png',
+        iconSize: [25, 41],
+        iconAnchor: [12, 41],
+        popupAnchor: [1, -34],
+        shadowSize: [41, 41]
+    });
+
+        const imageWidth = 314;
+        const imageHeight = 702;
+
+        const bounds = [[0, 0], [imageHeight, imageWidth]];
+
+        const map = L.map('map', {
+            crs: L.CRS.Simple,
+            minZoom: 0,
+            maxZoom: 2,
+            maxBounds: bounds,
+            maxBoundsViscosity: 1.0,
+        });
+
+
+        const image = L.imageOverlay('images/map2.png', bounds).addTo(map);
+        map.fitBounds(bounds);
+
+
+        if (sessionStorage.getItem("mapMode") == null) {
+            window.location.href = "index.html";
+        }
+        if (sessionStorage.getItem("mapMode") == "locate") {
+            fetch('rooms.json')
+                .then(response => response.json())
+                .then(function(data) {
+                    let corrID = sessionStorage.getItem("loc1");
+                    for (let i = 0; i < data.length; i++) {
+                        //Leaflet uses [Y, X] order
+                        if (data[i].floor == 2 && data[i].id == corrID) {
+                            L.marker([702-data[i].coordY, data[i].coordX-300], { icon: greenIcon })
+                            .addTo(map)
+                            .bindPopup(data[i].name);
+                        }
+                        else if (data[i].floor == 2) {
+                            L.marker([702-data[i].coordY, data[i].coordX-300])
+                            .addTo(map)
+                            .bindPopup(data[i].name);
+                        }
+                    }
+                });
+        }
+        else if (sessionStorage.getItem("mapMode") == "pathfind") {
+            fetch('rooms.json')
+                .then(response => response.json())
+                .then(function(data) {
+                    var loc1 = sessionStorage.getItem("loc1");
+                    var loc2 = sessionStorage.getItem("loc2");
+                    for (let i = 0; i < data.length; i++) {
+                        //Leaflet uses Y, X order!!!!
+                        if (data[i].floor == 2) {
+                            if (data[i].id == loc1) {
+                                L.marker([702-data[i].coordY, data[i].coordX-300], { icon: greenIcon })
+                                .addTo(map)
+                                .bindPopup(data[i].name);
+                            }
+                        
+                            else if (data[i].id == loc2) {
+                                L.marker([702-data[i].coordY, data[i].coordX-300], { icon: redIcon })
+                                .addTo(map)
+                                .bindPopup(data[i].name);
+                            }
+                            else {
+                                
+                                L.marker([702-data[i].coordY, data[i].coordX-300])
+                                .addTo(map)
+                                .bindPopup(data[i].name);
+
+                                
+                                
+                                
+                            }
+                        }
+                    }
+
+                    let path = [];
+                    // y, x, index
+                    let count = 1;
+                    
+                    for (let i = 0; i < 22; i++) {
+                        //L.marker([702-620+(i*25), 388-300]).addTo(map).bindPopup(`${count}`);
+                        //pathX.push(388-300);
+                        //pathY.push(702-620+(i*25));
+                        path.push([702-620+(i*25), 388-300, count]);
+                        count++;
+
+                    }
+                    
+                    for (let i = 0; i < 7; i++) {
+                        //L.marker([702-95, 388-300+(i*25)]).addTo(map).bindPopup(`${count}`);
+                        //pathX.push(388-300+(i*25));
+                        //pathY.push(702-95);
+                        path.push([702-95, 388-300+(i*25), count]);
+                        count++;
+                    }
+                    for (let i = 0; i < 20; i++) {
+                        //L.marker([702-120-(i*25), 388-150]).addTo(map).bindPopup(`${count}`);
+                        //pathX.push(388-300);
+                        //pathY.push(702-620+(i*25));
+
+                        path.push([702-120-(i*25), 388-150, count]);
+                        count++;
+                    }
+            
+                    for (let i = 5; i >= 0; i-=1) {
+                        //L.marker([702-620, 388-275+(i*25)]).addTo(map).bindPopup(`${count}`);
+                        //pathX.push(388-300+(i*25));
+                        //pathY.push(702-95);
+                        path.push([702-620, 388-275+(i*25), count]);
+                        count++;
+                    }
+                    
+                    let dis = 1000000;
+                    let loc1Gate = 1;
+
+                    //console.log("-" + loc1);
+
+                    let x = data[loc1 - 1].coordX - 300;       // -300 after, NOT BEFORE
+                    let y = 702 - data[loc1 - 1].coordY;
+                    // in leaflet, these get flipped, but my brain hurts any other way
+
+                    for (let i = 0; i < path.length; i++) {
+                        let yN = path[i][0]; // already adjusted
+                        let xN = path[i][1]; // 
+
+                        let xDiff = Math.abs(xN - x);
+                        let yDiff = Math.abs(yN - y);
+                        let allDiff = xDiff + yDiff;
+
+                        if (dis > allDiff) {
+                            dis = allDiff;
+                            loc1Gate = i;
+                        }
+                    }
+
+                    console.log(loc1Gate);
+
+                    dis = 1000000;
+                    let loc2Gate = 1;
+
+                    //console.log("-" + loc1);
+
+                    x = data[loc2 - 1].coordX - 300;       
+                    y = 702 - data[loc2 - 1].coordY;   
+
+                    for (let i = 0; i < path.length; i++) {
+                        let yN = path[i][0]; // already adjusted
+                        let xN = path[i][1]; // 
+
+                        let xDiff = Math.abs(xN - x);
+                        let yDiff = Math.abs(yN - y);
+                        let allDiff = xDiff + yDiff;
+
+                        if (dis > allDiff) {
+                            dis = allDiff;
+                            loc2Gate = i;
+                        }
+                    }
+
+                    console.log(loc2Gate);
+
+                    let r1 = 0; // length of route 1
+                    let r2 = 0; // length of route 2
+                    let route = []; //  route steps
+                    if (loc2Gate > loc1Gate) {
+
+                        r1 = loc2Gate - loc1Gate;
+                        r2 = path.length - loc2Gate;
+                        r2 += loc1Gate;
+
+                        if (r1 <= r2) {
+                            for (let i = 0; i < r1; i++) {
+                                route.push(loc1Gate+i);
+                            }
+                        }
+                        else {
+                            for (let i = loc2Gate; i < path.length; i++) {
+                                route.push(i);
+                            }
+                            for (let i = 0; i < loc1Gate; i++) {
+                                route.push(i);
+                            }
+                        }
+                        
+                    }
+                    else {
+                        r1 = loc1Gate - loc2Gate;
+                        r2 = path.length - loc1Gate;
+                        r2 += loc2Gate;
+
+                        if (r1 <= r2) {
+                            for (let i = 0; i < r1; i++) {
+                                route.push(loc2Gate+i);
+                            }
+                        }
+                        else {
+                            for (let i = loc1Gate; i < path.length; i++) {
+                                route.push(i);
+                            }
+                            for (let i = 0; i < loc2Gate; i++) {
+                                route.push(i);
+                            }
+                        }
+                    }
+                    console.log(route);
+
+                    var line = [];
+                    for (let i = 0; i < route.length; i++) {
+                        let x = path[route[i]][1];
+                        let y = path[route[i]][0];
+                        line.push([y, x]);
+                    }
+
+                    var polyline = L.polyline(line, {color: 'darkred', weight: 8}).addTo(map);
+
+                    // zoom the map to the polyline
+                    map.fitBounds(polyline.getBounds());
+
+                });
+        }
+
+        
+    </script>
+</html>
