@@ -34,12 +34,42 @@
                 right: 5vw;
                 opacity: 85%;
             }
+            #compass {
+                position: fixed;
+                z-index: 1000;
+                top: 12%;
+                right: 5vw;
+                opacity: 85%;
+            }
+            #compassDisplayBody {
+                position: fixed;
+                bottom: 0;
+                background-color: white;
+                height: 10%;
+                left: 30%;
+                right: 30%;
+                border-top-left-radius: 30px;
+                border-top-right-radius: 30px;
+            }
+            #compassDIR {
+                position: relative;
+                top: 20%;
+                background-color: rgb(186, 186, 185);
+                font-size: 40px;
+                color: rgb(46, 46, 46);
+                border-radius: 260px;
+            }
         </style>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
         <div id="map"></div>
         <a href="index.html"><span id="return" class="material-symbols-outlined iconLarge">chevron_left</span></a>
+        <span id="compass" class="material-symbols-outlined iconLarge">explore</span>
+        <div id="compassDisplay">
+            <div id="compassDisplayBody"><span id="compassDIR" class="material-symbols-outlined">arrow_circle_up</span></div>
+        </div>
+
     </body>
 <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
 
@@ -278,6 +308,47 @@
 
                     // zoom the map to the polyline
                     map.fitBounds(polyline.getBounds());
+
+                    function getDirection(degree) {
+                    const directions = ['N', 'NE', 'E', 'SE', 'S', 'SW', 'W', 'NW', 'N'];
+                    return directions[Math.round(degree / 45) % 8];
+                    }
+
+                    function handleOrientation(event) {
+                        function handleOrientation(event) {
+                            const alpha = event.alpha;
+                            if (alpha !== null) {
+                            const heading = Math.round(alpha);
+
+                            // Rotate the compass needle
+                            const needle = document.getElementById('compassDIR');
+                            if (needle) {
+                                needle.style.transform = `rotate(${-heading}deg)`; // Negative to mimic real compass behavior
+                            }
+                            }
+                        }
+                    }
+
+                    document.getElementById('compass').addEventListener('click', async () => {
+                    if (typeof DeviceOrientationEvent.requestPermission === 'function') {
+                        // iOS 13+ flow
+                        try {
+                        const permission = await DeviceOrientationEvent.requestPermission();
+                        if (permission === 'granted') {
+                            window.addEventListener('deviceorientation', handleOrientation, true);
+                            console.log('Permission granted, listening for orientation...');
+                        } else {
+                            alert('Permission denied for motion sensors.');
+                        }
+                        } catch (err) {
+                        alert('Error requesting permission: ' + err);
+                        }
+                    } else {
+                        // Android / older iOS
+                        window.addEventListener('deviceorientation', handleOrientation, true);
+                        console.log('Non-iOS device, listening for orientation...');
+                    }
+                    });
 
                 });
         }
