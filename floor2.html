@@ -315,17 +315,15 @@
                     }
 
                     function handleOrientation(event) {
-                        function handleOrientation(event) {
-                            const alpha = event.alpha;
-                            if (alpha !== null) {
-                            const heading = Math.round(alpha);
+                        const alpha = event.alpha;
+                        if (alpha !== null) {
+                        const heading = Math.round(alpha);
 
-                            // Rotate the compass needle
-                            const needle = document.getElementById('compassDIR');
-                            if (needle) {
-                                needle.style.transform = `rotate(${-heading}deg)`; // Negative to mimic real compass behavior
-                            }
-                            }
+                        // Rotate the compass needle
+                        const needle = document.getElementById('compassDIR');
+                        if (needle) {
+                            needle.style.transform = `rotate(${-heading}deg)`; // Negative to mimic real compass behavior
+                        }
                         }
                     }
 
