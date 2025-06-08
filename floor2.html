@@ -45,7 +45,7 @@
                 position: fixed;
                 bottom: 0;
                 background-color: white;
-                height: 10%;
+                height: 12%;
                 left: 30%;
                 right: 30%;
                 border-top-left-radius: 30px;
@@ -53,9 +53,9 @@
             }
             #compassDIR {
                 position: relative;
-                top: 20%;
+                top: 15%;
                 background-color: rgb(186, 186, 185);
-                font-size: 40px;
+                font-size: 60px;
                 color: rgb(46, 46, 46);
                 border-radius: 260px;
             }
@@ -67,7 +67,7 @@
         <a href="index.html"><span id="return" class="material-symbols-outlined iconLarge">chevron_left</span></a>
         <span id="compass" class="material-symbols-outlined iconLarge">explore</span>
         <div id="compassDisplay">
-            <div id="compassDisplayBody"><span id="compassDIR" class="material-symbols-outlined">arrow_circle_up</span></div>
+            
         </div>
 
     </body>
@@ -309,21 +309,15 @@
                     // zoom the map to the polyline
                     map.fitBounds(polyline.getBounds());
 
-                    function getDirection(degree) {
-                    const directions = ['N', 'NE', 'E', 'SE', 'S', 'SW', 'W', 'NW', 'N'];
-                    return directions[Math.round(degree / 45) % 8];
-                    }
-
                     function handleOrientation(event) {
                         const alpha = event.alpha;
                         if (alpha !== null) {
-                        const heading = Math.round(alpha);
+                            const heading = Math.round(alpha);
 
-                        // Rotate the compass needle
-                        const needle = document.getElementById('compassDIR');
-                        if (needle) {
-                            needle.style.transform = `rotate(${-heading}deg)`; // Negative to mimic real compass behavior
-                        }
+                            const needle = document.getElementById('compassDIR');
+                            if (needle) {
+                                needle.style.transform = `rotate(${-heading-120}deg)`; // Inversd
+                            }
                         }
                     }
 
@@ -334,7 +328,7 @@
                         const permission = await DeviceOrientationEvent.requestPermission();
                         if (permission === 'granted') {
                             window.addEventListener('deviceorientation', handleOrientation, true);
-                            console.log('Permission granted, listening for orientation...');
+                            document.getElementById("compassDisplay").innerHTML = `<div id="compassDisplayBody"><span id="compassDIR" class="material-symbols-outlined">arrow_circle_up</span></div>`;          
                         } else {
                             alert('Permission denied for motion sensors.');
                         }
@@ -344,7 +338,7 @@
                     } else {
                         // Android / older iOS
                         window.addEventListener('deviceorientation', handleOrientation, true);
-                        console.log('Non-iOS device, listening for orientation...');
+                        document.getElementById("compassDisplay").innerHTML = `<div id="compassDisplayBody"><span id="compassDIR" class="material-symbols-outlined">arrow_circle_up</span></div>`;
                     }
                     });
 
