@@ -34,12 +34,39 @@
                 right: 5vw;
                 opacity: 85%;
             }
+            #compass {
+                position: fixed;
+                z-index: 1000;
+                top: 12%;
+                right: 5vw;
+                opacity: 85%;
+            }
+            #compassDisplayBody {
+                position: fixed;
+                bottom: 0;
+                background-color: white;
+                height: 12%;
+                left: 30%;
+                right: 30%;
+                border-top-left-radius: 30px;
+                border-top-right-radius: 30px;
+            }
+            #compassDIR {
+                position: relative;
+                top: 15%;
+                background-color: rgb(186, 186, 185);
+                font-size: 60px;
+                color: rgb(46, 46, 46);
+                border-radius: 260px;
+            }
         </style>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
         <div id="map"></div>
         <a href="index.html"><span id="return" class="material-symbols-outlined iconLarge">chevron_left</span></a>
+        <span id="compass" class="material-symbols-outlined iconLarge">explore</span>
+        <div id="compassDisplay"></div>
     </body>
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
 
@@ -125,95 +152,58 @@
                         }
                     }
 
-                    let path = [];
+                    let gates = [];
                     let count = 1;
-                    /*
 
-                    for (let i = 0; i < 22; i++) {
-                        path.push([imageHeight - 620 + (i * 25), 388, count]);
-                        count++;
-                    }
+                    L.marker([imageHeight - 560, 456], { icon: redIcon })
+                                    .addTo(map)
+                                    .bindPopup("1");
+                    gates.push([560, 456, 1, ]) // gate 1
 
-                    for (let i = 0; i < 7; i++) {
-                        path.push([imageHeight - 95, 388 + (i * 25), count]);
-                        count++;
-                    }
+                    L.marker([imageHeight - 560, 600], { icon: redIcon })
+                                    .addTo(map)
+                                    .bindPopup("1");
+                    gates.push([560, 600, 2, ]) // gate 2
 
-                    for (let i = 0; i < 20; i++) {
-                        path.push([imageHeight - 120 - (i * 25), 538, count]);
-                        count++;
-                    }
+                    L.marker([imageHeight - 425, 600], { icon: redIcon })
+                                    .addTo(map)
+                                    .bindPopup("1");
+                    gates.push([560, 600, 3, ]) // gate 3
 
-                    for (let i = 5; i >= 0; i--) {
-                        path.push([imageHeight - 620, 275 + (i * 25), count]);
-                        count++;
-                    }
+                    
 
-                    let dis = 1000000;
-                    let loc1Gate = 1;
+                    function handleOrientation(event) {
+                        const alpha = event.alpha;
+                        if (alpha !== null) {
+                            const heading = Math.round(alpha);
 
-                    let x = data[loc1 - 1].coordX;
-                    let y = imageHeight - data[loc1 - 1].coordY;
-
-                    for (let i = 0; i < path.length; i++) {
-                        let yN = path[i][0];
-                        let xN = path[i][1];
-                        let allDiff = Math.abs(xN - x) + Math.abs(yN - y);
-                        if (dis > allDiff) {
-                            dis = allDiff;
-                            loc1Gate = i;
+                            const needle = document.getElementById('compassDIR');
+                            if (needle) {
+                                needle.style.transform = `rotate(${-heading}deg)`; // Inversd
+                            }
                         }
                     }
 
-                    dis = 1000000;
-                    let loc2Gate = 1;
-
-                    x = data[loc2 - 1].coordX;
-                    y = imageHeight - data[loc2 - 1].coordY;
-
-                    for (let i = 0; i < path.length; i++) {
-                        let yN = path[i][0];
-                        let xN = path[i][1];
-                        let allDiff = Math.abs(xN - x) + Math.abs(yN - y);
-                        if (dis > allDiff) {
-                            dis = allDiff;
-                            loc2Gate = i;
-                        }
-                    }
-
-                    let r1 = 0, r2 = 0, route = [];
-
-                    if (loc2Gate > loc1Gate) {
-                        r1 = loc2Gate - loc1Gate;
-                        r2 = path.length - loc2Gate + loc1Gate;
-                        if (r1 <= r2) {
-                            for (let i = 0; i < r1; i++) route.push(loc1Gate + i);
+                    document.getElementById('compass').addEventListener('click', async () => {
+                    if (typeof DeviceOrientationEvent.requestPermission === 'function') {
+                        // iOS 13+ flow
+                        try {
+                        const permission = await DeviceOrientationEvent.requestPermission();
+                        if (permission === 'granted') {
+                            window.addEventListener('deviceorientation', handleOrientation, true);
+                            document.getElementById("compassDisplay").innerHTML = `<div id="compassDisplayBody"><span id="compassDIR" class="material-symbols-outlined">arrow_circle_up</span></div>`;          
                         } else {
-                            for (let i = loc2Gate; i < path.length; i++) route.push(i);
-                            for (let i = 0; i < loc1Gate; i++) route.push(i);
+                            alert('Permission denied for motion sensors.');
+                        }
+                        } catch (err) {
+                        alert('Error requesting permission: ' + err);
                         }
                     } else {
-                        r1 = loc1Gate - loc2Gate;
-                        r2 = path.length - loc1Gate + loc2Gate;
-                        if (r1 <= r2) {
-                            for (let i = 0; i < r1; i++) route.push(loc2Gate + i);
-                        } else {
-                            for (let i = loc1Gate; i < path.length; i++) route.push(i);
-                            for (let i = 0; i < loc2Gate; i++) route.push(i);
-                        }
+                        // Android / older iOS
+                        window.addEventListener('deviceorientation', handleOrientation, true);
+                        document.getElementById("compassDisplay").innerHTML = `<div id="compassDisplayBody"><span id="compassDIR" class="material-symbols-outlined">arrow_circle_up</span></div>`;
                     }
-
-                    var line = [];
-                    for (let i = 0; i < route.length; i++) {
-                        let x = path[route[i]][1];
-                        let y = path[route[i]][0];
-                        line.push([y, x]);
-                    }
-
-                    var polyline = L.polyline(line, { color: 'darkred', weight: 8 }).addTo(map);
-                    map.fitBounds(polyline.getBounds());
-
-                    */
+                    });
                 });
         }
     </script>
