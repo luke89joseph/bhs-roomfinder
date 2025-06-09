@@ -449,10 +449,10 @@
                             if (needle) {
                                 let pin = 0;
                                 if (heading > 140) {
-                                    pin = heading-140;
+                                    pin = 360 - (140-heading);
                                 }
                                 else if (heading < 140) {
-                                    pin = 360 - (140-heading);
+                                    pin = heading-140;
                                 }
                                 needle.style.transform = `rotate(${pin}deg)`; // Inversd
                             }
