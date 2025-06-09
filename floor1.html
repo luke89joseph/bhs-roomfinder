@@ -447,7 +447,14 @@
 
                             const needle = document.getElementById('compassDIR');
                             if (needle) {
-                                needle.style.transform = `rotate(${-heading-140}deg)`; // Inversd
+                                let pin = 0;
+                                if (heading > 140) {
+                                    pin = heading-140;
+                                }
+                                else if (heading < 140) {
+                                    pin = 360 - (140-heading);
+                                }
+                                needle.style.transform = `rotate(${pin}deg)`; // Inversd
                             }
                         }
                     }
