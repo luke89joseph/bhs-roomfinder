@@ -310,13 +310,14 @@
                     map.fitBounds(polyline.getBounds());
 
                     function handleOrientation(event) {
-                        const alpha = event.webkitCompassHeading;
+                        const alpha = event.alpha;
                         if (alpha !== null) {
-                            const heading = Math.round(alpha);
-
+                            // Adjust heading so that 140 degrees is treated as 0 (north)
+                            const adjustedHeading = (alpha - 140 + 360) % 360;
+                    
                             const needle = document.getElementById('compassDIR');
                             if (needle) {
-                                needle.style.transform = `rotate(${-heading-140}deg)`; // Inversd
+                                needle.style.transform = `rotate(${-adjustedHeading}deg)`; // Negative to rotate correctly
                             }
                         }
                     }
