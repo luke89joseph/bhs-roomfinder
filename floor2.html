@@ -313,17 +313,11 @@
                         const alpha = event.alpha;
                         if (alpha !== null) {
                             const heading = Math.round(alpha);
+                            const relativeHeading = (heading - 140 + 360) % 360;
 
                             const needle = document.getElementById('compassDIR');
                             if (needle) {
-                                let pin = 0;
-                                if (heading > 140) {
-                                    pin = 360 - (140-heading);
-                                }
-                                else if (heading < 140) {
-                                    pin = heading-140;
-                                }
-                                needle.style.transform = `rotate(${pin}deg)`; // Inversd
+                                needle.style.transform = `rotate(${relativeHeading}deg)`;
                             }
                         }
                     }
