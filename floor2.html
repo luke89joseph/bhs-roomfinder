@@ -310,7 +310,7 @@
                     map.fitBounds(polyline.getBounds());
 
                     function handleOrientation(event) {
-                        const alpha = event.alpha;
+                        const alpha = event.webkitCompassHeading;
                         if (alpha !== null) {
                             const heading = Math.round(alpha);
 

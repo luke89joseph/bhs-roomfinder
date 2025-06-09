@@ -145,30 +145,298 @@
                                     .addTo(map)
                                     .bindPopup(data[i].name);
                             } else {
+                                
                                 L.marker([imageHeight - data[i].coordY, data[i].coordX])
                                     .addTo(map)
                                     .bindPopup(data[i].name);
+                                
                             }
                         }
                     }
 
                     let gates = [];
-                    let count = 1;
-
+                    gates.push([560, 456, 1, [2, 19]]); // gate 1
+                    gates.push([560, 600, 2, [1, 3]]); // gate 2
+                    gates.push([425, 600, 3, [20, 4]]); // gate 3
+                    gates.push([425, 670, 4, [3, 5]]); // gate 4
+                    gates.push([315, 670, 5, [4, 6]]); // gate 5
+                    gates.push([165, 670, 6, [5, 7]]); // gate 6
+                    gates.push([165, 580, 7, [8, 10]]); // gate 7
+                    gates.push([70, 580, 8, [7, 9]]); // gate 8
+                    gates.push([70, 460, 9, [8]]); // gate 9
+                    gates.push([205, 535, 10, [7, 11, 22]]); // gate 10
+                    gates.push([165, 480, 11, [10, 12]]); // gate 11
+                    gates.push([165, 400, 12, [13]]); // gate 12
+                    gates.push([165, 335, 13, [12, 26]]); // gate 13
+                    gates.push([330, 335, 14, [13, 15]]); // gate 14
+                    gates.push([430, 335, 15, [16, 17, 19]]); // gate 15
+                    gates.push([430, 260, 16, [15]]); // gate 16
+                    gates.push([500, 335, 17, [15, 18]]); // gate 17
+                    gates.push([550, 300, 18, [17]]); // gate 18
+                    gates.push([430, 456, 19, [20, 15, 1]]); // gate 19
+                    gates.push([430, 525, 20, [19, 21, 3]]); // gate 20
+                    gates.push([385, 525, 21, [20, 22]]); // gate 21
+                    gates.push([270, 525, 22, [21, 23, 24, 10]]); // gate 22
+                    gates.push([270, 580, 23, [22]]); // gate 23
+                    gates.push([270, 460, 24, [22, 25]]); // gate 24
+                    gates.push([270, 400, 25, [24, 26]]); // gate 25
+                    gates.push([260, 335, 26, [13, 14, 25]]); // gate 26
+                    /*
                     L.marker([imageHeight - 560, 456], { icon: redIcon })
                                     .addTo(map)
                                     .bindPopup("1");
-                    gates.push([560, 456, 1, ]) // gate 1
+                    gates.push([560, 456, 1, [2, 19]]); // gate 1
 
                     L.marker([imageHeight - 560, 600], { icon: redIcon })
                                     .addTo(map)
-                                    .bindPopup("1");
-                    gates.push([560, 600, 2, ]) // gate 2
+                                    .bindPopup("2");
+                    gates.push([560, 600, 2, [1, 3]]); // gate 2
 
                     L.marker([imageHeight - 425, 600], { icon: redIcon })
                                     .addTo(map)
-                                    .bindPopup("1");
-                    gates.push([560, 600, 3, ]) // gate 3
+                                    .bindPopup("3");
+                    gates.push([425, 600, 3, [20, 4]]); // gate 3
+
+                    L.marker([imageHeight - 425, 670], { icon: redIcon })
+                                    .addTo(map)
+                                    .bindPopup("4");
+                    gates.push([425, 670, 4, [3, 5]]); // gate 4
+
+                    L.marker([imageHeight - 315, 670], { icon: redIcon })
+                                    .addTo(map)
+                                    .bindPopup("5");
+                    gates.push([315, 670, 5, [4, 6]]); // gate 5
+
+                    L.marker([imageHeight - 165, 670], { icon: redIcon })
+                                    .addTo(map)
+                                    .bindPopup("6");
+                    gates.push([165, 670, 6, [5, 7]]); // gate 6
+
+                    L.marker([imageHeight - 165, 580], { icon: redIcon })
+                                    .addTo(map)
+                                    .bindPopup("7");
+                    gates.push([165, 580, 7, [8, 10]]); // gate 7
+
+                    L.marker([imageHeight - 70, 580], { icon: redIcon })
+                                    .addTo(map)
+                                    .bindPopup("8");
+                    gates.push([70, 580, 8, [7, 9]]); // gate 8
+
+                    L.marker([imageHeight - 70, 460], { icon: redIcon })
+                                    .addTo(map)
+                                    .bindPopup("9");
+                    gates.push([70, 460, 9, [8]]); // gate 9
+
+                    L.marker([imageHeight - 205, 535], { icon: redIcon })
+                                    .addTo(map)
+                                    .bindPopup("10");
+                    gates.push([205, 535, 10, [7, 11, 22]]); // gate 10
+
+                    L.marker([imageHeight - 165, 480], { icon: redIcon })
+                                    .addTo(map)
+                                    .bindPopup("11");
+                    gates.push([165, 480, 11, [10, 12]]); // gate 11
+
+                    L.marker([imageHeight - 165, 400], { icon: redIcon })
+                                    .addTo(map)
+                                    .bindPopup("12");
+                    gates.push([165, 400, 12, [13]]); // gate 12
+
+                    L.marker([imageHeight - 165, 335], { icon: redIcon })
+                                    .addTo(map)
+                                    .bindPopup("13");
+                    gates.push([165, 335, 13, [12, 26]]); // gate 13
+
+                    L.marker([imageHeight - 330, 335], { icon: redIcon })
+                                    .addTo(map)
+                                    .bindPopup("14");
+                    gates.push([330, 335, 14, [13, 15]]); // gate 14
+
+                    L.marker([imageHeight - 430, 335], { icon: redIcon })
+                                    .addTo(map)
+                                    .bindPopup("15");
+                    gates.push([430, 335, 15, [16, 17, 19]]); // gate 15
+
+                    L.marker([imageHeight - 430, 260], { icon: redIcon })
+                                    .addTo(map)
+                                    .bindPopup("16");
+                    gates.push([430, 260, 16, [15]]); // gate 16
+
+                    L.marker([imageHeight - 500, 335], { icon: redIcon })
+                                    .addTo(map)
+                                    .bindPopup("17");
+                    gates.push([500, 335, 17, [15, 18]]); // gate 17
+
+                    L.marker([imageHeight - 550, 300], { icon: redIcon })
+                                    .addTo(map)
+                                    .bindPopup("18");
+                    gates.push([550, 300, 18, [17]]); // gate 18
+
+                    L.marker([imageHeight - 430, 456], { icon: redIcon })
+                                    .addTo(map)
+                                    .bindPopup("19");
+                    gates.push([430, 456, 19, [20, 15, 1]]); // gate 19
+
+                    L.marker([imageHeight - 430, 525], { icon: redIcon })
+                                    .addTo(map)
+                                    .bindPopup("20");
+                    gates.push([430, 525, 20, [19, 21, 3]]); // gate 20
+
+                    L.marker([imageHeight - 385, 525], { icon: redIcon })
+                                    .addTo(map)
+                                    .bindPopup("21");
+                    gates.push([385, 525, 21, [20, 22]]); // gate 21
+
+                    L.marker([imageHeight - 270, 525], { icon: redIcon })
+                                    .addTo(map)
+                                    .bindPopup("22");
+                    gates.push([270, 525, 22, [21, 23, 24, 10]]); // gate 22
+
+                    L.marker([imageHeight - 270, 580], { icon: redIcon })
+                                    .addTo(map)
+                                    .bindPopup("23");
+                    gates.push([270, 580, 23, [22]]); // gate 23
+
+                    L.marker([imageHeight - 270, 460], { icon: redIcon })
+                                    .addTo(map)
+                                    .bindPopup("24");
+                    gates.push([270, 460, 24, [22, 25]]); // gate 24
+
+                    L.marker([imageHeight - 270, 400], { icon: redIcon })
+                                    .addTo(map)
+                                    .bindPopup("25");
+                    gates.push([270, 400, 25, [24, 26]]); // gate 25
+
+                    L.marker([imageHeight - 260, 335], { icon: redIcon })
+                                    .addTo(map)
+                                    .bindPopup("26");
+                    gates.push([260, 335, 26, [13, 14, 25]]); // gate 26
+                    */
+
+
+                    //console.log(gates);
+
+                    
+                    let x = data[loc1-1].coordX;
+                    let y = data[loc1-1].coordY;
+                    let gate1 = 0;
+                    let currVal = 100000;
+
+                    for (let i = 0; i < gates.length; i++) {
+                        let xN = gates[i][1];
+                        let yN = gates[i][0];
+
+                        let yDIFF = Math.abs(yN - y);
+                        let xDIFF = Math.abs(xN - x);
+
+                        let tDIFF = yDIFF + xDIFF;
+                        if (tDIFF < currVal) {
+                            gate1 = i+1;
+                            currVal = tDIFF;
+                        }
+                    }
+
+                    x = data[loc2-1].coordX;
+                    y = data[loc2-1].coordY;
+                    let gate2 = 0;
+                    currVal = 100000;
+
+                    for (let i = 0; i < gates.length; i++) {
+                        let xN = gates[i][1];
+                        let yN = gates[i][0];
+
+                        let yDIFF = Math.abs(yN - y);
+                        let xDIFF = Math.abs(xN - x);
+
+                        let tDIFF = yDIFF + xDIFF;
+                        if (tDIFF < currVal) {
+                            gate2 = i+1;
+                            currVal = tDIFF;
+                        }
+                    }
+                    //console.log(gate2);
+
+                    var path = [gate1];
+                    var currProg = gate1;
+                    var count = 0;
+
+                    while (currProg !== gate2) {
+                        console.log(currProg);
+
+                        var options = [];
+                        for (var i = 0; i < gates.length; i++) {
+                            if (gates[i][2] === currProg) {
+                                options = gates[i][3];
+                                break;
+                            }
+                        }
+
+                        if (options.length > 1) {
+                            var shortestDist = 10000;
+                            var nextGate = 0;
+
+                            for (var j = 0; j < options.length; j++) {
+                                var index = -1;
+                                for (var k = 0; k < gates.length; k++) {
+                                    if (gates[k][2] === options[j]) {
+                                        index = k;
+                                        break;
+                                    }
+                                }
+
+                                if (index === -1) {
+                                    continue; // Skip if gate null
+                                }
+
+                                if (path.indexOf(options[j]) !== -1) {
+                                    continue; // Skip already visited gates
+                                }
+
+                                var xN = gates[index][1];
+                                var yN = gates[index][0];
+
+                                var yDIFF = Math.abs(yN - y);
+                                var xDIFF = Math.abs(xN - x);
+                                var totalDIFF = yDIFF + xDIFF;
+
+                                if (totalDIFF < shortestDist) {
+                                    nextGate = options[j];
+                                    shortestDist = totalDIFF;
+                                }
+                            }
+
+                            currProg = nextGate;
+                            path.push(nextGate);
+                        } else if (options.length === 1) {
+                            currProg = options[0];
+                            path.push(currProg);
+                        } else {
+                            break;
+                        }
+
+                        count++;
+                        if (count >= 20) {
+                            console.log("ERROR");
+                            break;
+                        }
+                    }
+                    console.log(path);
+
+                    // Convert path to line coordinates
+                    var line = [];
+                    for (var i = 0; i < path.length; i++) {
+                        for (var j = 0; j < gates.length; j++) {
+                            if (gates[j][2] === path[i]) {
+                                var yCoord = imageHeight - gates[j][0];
+                                var xCoord = gates[j][1];
+                                line.push([yCoord, xCoord]);
+                                break;
+                            }
+                        }
+                    }
+
+                    var polyline = L.polyline(line, { color: 'darkred', weight: 8 }).addTo(map);
+                    map.fitBounds(polyline.getBounds());
 
                     
 
